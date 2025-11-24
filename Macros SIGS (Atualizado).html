@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGS - Seletor de Macros de Chamado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul vibrante */
+            --secondary-color: #3f51b5; /* Azul Escuro/Índigo */
+            --background-dark: #1f2025;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow-light: 0 8px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+        }
+
+        /* 1. Estilização Global e Fundo */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-dark);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Imagem de Fundo Solicitada */
+            background-image: url('https://i.imgur.com/xrBBnIB_d.jpeg?maxwidth=520&shape=thumb&fidelity=high');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            max-width: 900px;
+            width: 95%;
+            z-index: 1;
+        }
+
+        /* 2. Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .liberty-icon {
+            font-size: 1.8em;
+            color: gold;
+            margin-right: 10px;
+        }
+
+        /* 3. Dropdown e Output */
+        .select-container { margin-bottom: 30px; text-align: center; }
+        .select-container label { display: block; margin-bottom: 15px; font-size: 1.2em; font-weight: 600; }
+        #macroSelect { width: 100%; padding: 12px 15px; border-radius: 8px; border: 2px solid var(--primary-color); background-color: #f8f9fa; font-size: 1em; appearance: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        .macro-output { display: none; margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-radius: var(--border-radius); background: #ffffff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        #macroText { width: 100%; min-height: 250px; padding: 15px; border: none; border-radius: 6px; background: #f4f7f6; font-family: monospace; font-size: 0.95em; line-height: 1.4; resize: vertical; margin-bottom: 15px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); }
+        .copy-button { display: block; width: 100%; padding: 12px 20px; background-color: var(--primary-color); color: var(--text-light); border: none; border-radius: 8px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4); }
+        .copy-button:hover { background-color: #0056b3; transform: translateY(-2px); }
+        .copy-button:active { transform: translateY(0); }
+        #feedbackMessage { margin-top: 15px; text-align: center; font-weight: 600; color: var(--primary-color); opacity: 0; transition: opacity 0.5s; }
+
+        /* 4. Estilização do GIF no Canto */
+        .fun-animation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        #gifAnimation {
+            width: 150px; /* Tamanho do GIF */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: transparent; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>
+                <i class="fas fa-hand-holding-box liberty-icon"></i>
+                SIGS - Seletor de Macros de Chamado
+            </h1>
+            <p class="subtitle">Sistema Integrado de Gerenciamento de Segurança</p>
+        </header>
+
+        <div class="select-container">
+            <label for="macroSelect">Deseja macro referente a qual assunto?</label>
+            <select id="macroSelect" onchange="displayMacro()">
+                <option value="">-- Selecione uma opção --</option>
+                <option value="1">1. CFTV - Câmera - Falha</option>
+                <option value="2">2. Alarme de Intrusão - Sensor/Pânico - Falha</option>
+                <option value="3">3. Alarme de Intrusão - Sirene/Corneta - Falha</option>
+                <option value="4">4. Controle de Acesso - Leitor - Falha</option>
+                <option value="5">5. Security Desk - Erro</option>
+                <option value="6">6. Security Desk - Instalação</option>
+                <option value="7">7. Nuuo - Erro</option>
+                <option value="8">8. Alarme de Intrusão - Central - Falha</option>
+                <option value="9">9. OneDrive - Erro</option>
+                <option value="10">10. OneDrive - Espaço Insuficiente</option>
+                <option value="11">11. OneDrive - Dúvida de Usuário</option>
+            </select>
+        </div>
+
+        <div class="macro-output" id="macroOutput">
+            <textarea id="macroText" readonly></textarea>
+            <button class="copy-button" onclick="copyMacro()">
+                <i class="fas fa-copy"></i> Copiar Texto da Macro
+            </button>
+            <p id="feedbackMessage">Macro copiada com sucesso!</p>
+        </div>
+
+    </div>
+
+    <div class="fun-animation">
+        <img id="gifAnimation" src="https://media.tenor.com/uPvxcP-OUx0AAAAj/dog-no-background.gif" alt="Cachorro Animado" />
+    </div>
+
+    <script>
+        // Objeto contendo todas as macros (Mantido)
+        const macros = {
+            '1': `Assunto: Havan Labs - Help Desk - SIGS-CFTV - Câmera - Falha\n\n[SIGS] Verificar Câmera\n\nNome da câmera: [Campo de Texto]\nSetor: [Campo de Texto]\n\nProblema:\n[ ] Alterar Layout da Recepção\n[ ] Câmera off-line (desde: //)\n[ ] Danificada fisicamente\n[ ] Outros (especificar): [Campo de Texto]`,
+            '2': `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Sensor/Pânico - Falha\n\n[SIGS] Verificar Sensor/Pânico\n\nLocal: [Campo de Texto]\n[ ] Sensor\n[ ] Botão pânico fixo/móvel\n\nNúmero e nome das zonas: [Campo de Texto]\n\nProblema:\n[ ] Não constou no relatório após teste de alarme (data do teste: //)\n[ ] Disparos falsos após ativação da loja (data: //)\n[ ] Danificado\n[ ] Outros (especificar): [Campo de Texto]`,
+            '3': `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Sirene/Corneta - Falha\n\n[SIGS] Verificar Sirene/Corneta\n\nEquipamento:\n[ ] Central de alarme\n[ ] Central individual de porta de emergência\n\nProblema: [Campo de Texto]`,
+            '4': `Assunto: Havan Labs - Help Desk - SIGS - Controle de Acesso - Leitor - Falha\n\n[SIGS] Controle de Acesso\n\nDe qual setor:\n[ ] Alarme (teclado de ativação)\n[ ] Refeitório\n[ ] Par\n\nProblema:\n[ ] Erro ao cadastrar colaborador\n[ ] Danificado\n[ ] Não realiza leitura da biometria (informar erro): [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`,
+            '5': `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - [Local] - Erro\n\n[SIGS] Verificar Security Desk\n\nIP/Host: [Campo de Texto]\nUsuário: [Campo de Texto]\n\nProblema:\n[ ] Não está conectando\n[ ] Não inicia automaticamente\n[ ] Falha ao visualizar imagens (especificar): [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`,
+            '6': `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - [Local] - Instalar\n\n[SIGS] Instalação do Security Desk\n\nIP/Host: [Campo de Texto]\nMotivo da instalação: [Campo de Texto]`,
+            '7': `Assunto: Havan Labs - Help Desk - SIGS - Sistema Nuuo - Erro\n\n[SIGS] Verificar Nuuo\n\nIP/Host: [Campo de Texto]\nUsuário: [Campo de Texto]\n\nProblema:\n[ ] Não está conectando\n[ ] Falha ao visualizar imagens (especificar): [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`,
+            '8': `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Central - Falha\n\n[SIGS] Verificar Central de Alarme\n\nCentral de qual equipamento:\n[ ] Central de alarme\n[ ] Central individual de porta de emergência\n\nQual é a porta de emergência: [Campo de Texto]\n\nProblema:\n[ ] Bateria fraca\n[ ] Placa da central com problema\n[ ] Teclado com problema (especificar): [Campo de Texto]\n[ ] Controle da porta de emergência\n[ ] Outros (especificar): [Campo de Texto]`,
+            '9': `Assunto: Havan Labs - Help Desk - SIGS- OneDrive - Erro\n\n[SIGS] OneDrive com erro\n\nE-mail: [Campo de Texto]\nIP/Host: [Campo de Texto]\n\nProblema:\n[ ] Erro na sincronização\n[ ] Erro ao enviar arquivos para Jurídico, Auditoria ou Polícia\n[ ] Outros (descrever): [Campo de Texto]`,
+            '10': `Assunto: Havan Labs - Help Desk - SIGS- OneDrive - Cheio/Sem Espaço\n\n[SIGS] OneDrive com espaço insuficiente\n\nE-mail: [Campo de Texto]\nIP/Host: [Campo de Texto]`,
+            '11': `Assunto: Havan Labs - Help Desk - SIGS - OneDrive - Dúvida\n\n[SIGS] Dúvida sobre OneDrive\n\nE-mail: [Campo de Texto]\nIP/Host: [Campo de Texto]\nDescreva a dúvida: [Campo de Texto]`
+        };
+
+        const macroSelect = document.getElementById('macroSelect');
+        const macroOutput = document.getElementById('macroOutput');
+        const macroText = document.getElementById('macroText');
+        const feedbackMessage = document.getElementById('feedbackMessage');
+
+        /**
+         * Exibe a macro selecionada no textarea.
+         */
+        function displayMacro() {
+            const selectedValue = macroSelect.value;
+            
+            if (selectedValue && macros[selectedValue]) {
+                macroText.value = macros[selectedValue];
+                macroOutput.style.display = 'block';
+                macroOutput.scrollIntoView({ behavior: 'smooth' }); 
+            } else {
+                macroOutput.style.display = 'none';
+            }
+            feedbackMessage.style.opacity = '0'; 
+        }
+
+        /**
+         * Copia o texto da macro para a área de transferência.
+         */
+        function copyMacro() {
+            macroText.select();
+            macroText.setSelectionRange(0, 99999); 
+            
+            navigator.clipboard.writeText(macroText.value).then(() => {
+                feedbackMessage.style.opacity = '1'; 
+                
+                setTimeout(() => {
+                    feedbackMessage.style.opacity = '0';
+                }, 3000);
+            }).catch(err => {
+                console.error('Falha ao copiar:', err);
+                alert('Erro ao copiar a macro. Por favor, tente selecionar e copiar manualmente.');
+            });
+        }
+    </script>
+</body>
+</html>

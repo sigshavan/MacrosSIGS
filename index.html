@@ -316,212 +316,191 @@
             // ====================================================================================================
             // MACROS HELP DESK (TI Geral)
             // ====================================================================================================
-            'HD_IMPRESSORA_CAIXA': {
-                name: 'Impressora de Caixa (ECF/NFCe) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - ECF/NFCe - Falha\n\n[IMPRESSORA] Verificar impressora de caixa [PDV ]. FL.\n\nMarca/Modelo:\n[ ] Elgin I9\n[ ] Epson TM-T900F\n[ ] Bematech - Modelo: [Campo de Texto]\n\nNúmero de Série: [Campo de Texto]\n\nO que aconteceu?\n[ ] Não liga\n[ ] Travou durante a venda\n[ ] Encravamento de papel\n[ ] Impressão está saindo com falha/borrada\n[ ] ECF Bloqueada - Motivo do bloqueio: [Campo de Texto]\n[ ] ECF com data/hora divergente\n[ ] Não é reconhecido pelo computador\n[ ] Outros, explique: [Campo de Texto]`
-            },
-            'HD_IMPRESSORA_SETOR': {
-                name: 'Impressora Setor (Ricoh/Samsung/HP) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Setor - Falha\n\nVerificar impressora [Setor]. FL.\n\nMarca: Ricoh [ ] Sansung [ ] HP [ ]\nModelo: [Campo de Texto]\nNº DE SÉRIE DO EQUIPAMENTO: [Campo de Texto] (INFORMAÇÃO OBRIGATÓRIA)\n\nProblemas:\n[ ] Atolamento de papel, em qual parte? [Campo de Texto]\n[ ] Tampa quebrada, qual delas? [Campo de Texto]\n[ ] Apresentando o seguinte erro: [Campo de Texto] (Ex: SC542)\n[ ] Apresentando ruídos quando envia uma impressão, foi trocado o toner?`
-            },
-            'HD_IMPRESSORA_ZEBRA': {
-                name: 'Impressora Zebra (Depósito) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Zebra Depósito - Falha\n\n[SOFTWARE] Verificar impressora [Zebra Depósito]. FL. \n\nColaborador(a) entrou em contato informando o seguinte problema:\n[ ] Impressora não está calibrando - *ANEXAR FOTO DO LASER*\n[ ] Impressão saindo fraca/borrada - *ANEXAR FOTO DOS CILINDROS E DA CABEÇA DE IMPRESSÃO*\n[ ] Impressora sem rede - MAC: [Campo de Texto] (anexar foto)\n[ ] Impressora nova precisa de reserva - MAC: [Campo de Texto] (anexar foto)\n[ ] Fonte de cabeça para baixo/desconfigurada - *ANEXAR FOTO*\n[ ] Outros(Explique): [Campo de Texto] \n\nAnexar obrigatoriamente foto da etiqueta que está sendo usada. Inserir anexo do problema.`
-            },
-            'HD_TROCA_ANTECIPADA_TONER': {
-                name: 'Impressora - Troca Antecipada de Toner (Aviso)',
-                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Troca Antecipada de Toner\n\nVERIFICAR TROCA ANTECIDAPADA []. FL.\n\nIdentificamos uma troca incorreta do cartucho de toner em sua impressora.\n\nEntão, para garantir o abastecimento proativo no mês subsequente, orientamos que retorne esse cartucho para o seu equipamento utilize até o seu término.\n\nCom esta ação você evita desperdício, custos de excedente de toner e colabora com o meio ambiente.`
-            },
-            'HD_CAIXA_PINPAD': {
-                name: 'CAIXA - Pinpad (PPC-930) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - CAIXA - Pinpad - Falha\n\nVerificar pinpad do PDV [PDV]. FL.\n\nMarca: REDE | Modelo: PPC-930 | Número de série: [Campo de Texto]\n\nDescrição: O que aconteceu?\n[ ] Não liga\n[ ] Não lê cartão tarja\n[ ] Travou durante a venda\n[ ] Não lê cartão com chip\n[ ] Não lê cartão (nenhum tipo)\n[ ] Não é reconhecido pelo computador\n[ ] Outro, explique: [Campo de Texto]`
-            },
-            'HD_CAIXA_LEITOR': {
-                name: 'CAIXA - Leitor de Código de Barras - Falha',
-                text: `Assunto: Havan Labs - Help Desk - CAIXA - Leitor - Falha\n\nVerificar Leitor do PDV [PDV]. FL.\n\nProblema:\n[ ] O leitor dá retorno sonoro, mas não está lendo os código de barras\n[ ] O leitor sem retorno sonoro e sem ler os código de barras\n[ ] O leitor não está ligando\n[ ] Outro, descreva: [Campo de Texto]\n\nMarca: [Campo de Texto] | Modelo: [Campo de Texto] | S/N: [Campo de Texto] | Garantia: [Campo de Texto] | Adaptador: [ ]sim [ ] não`
-            },
-            'HD_CAIXA_NFCESAT_INTEGRACAO': {
-                name: 'CAIXA - Erro de Integração NFC-e / SAT',
-                text: `Assunto: Havan Labs - Help Desk - CAIXA - Integração NFC-e/SAT - Falha\n\nVerificar erro de Integração NFC-e / SAT. FL.\n\nLoja entrou em contato, informando que ao iniciar o sistema do PDV reporta a mensagem de erro:\n"Atenção! Integração NFCe/SAT indisponivel! Contate o suporte através do ramal 25105025"`
-            },
-            'HD_CAIXA_SAT_FALHA': {
-                name: 'CAIXA - SAT - Falha',
-                text: `Assunto: Havan Labs - Help Desk - CAIXA - SAT - Falha\n\nSAT apresentou erro no PDV [PDV]. FL. \n\nMarca/Modelo:\n[ ] Elgin Linker II\n[ ] Elgin Smart SAT\n\nNúmero de Série: [Campo de Texto] | MAC: [Campo de Texto]\n\nDescrição: O que aconteceu?\n[ ] Não liga\n[ ] Sem rede\n[ ] Bloqueado\n[ ] Horário divergindo mais de uma hora\n[ ] Não é reconhecido pelo computador\n[ ] Erro ao realizar consulta do SAT. Descreva: [Campo de Texto]\n[ ] Outro, explique: [Campo de Texto]`
-            },
-            'HD_CAIXA_POS': {
-                name: 'CAIXA - Maquineta de POS (REDE)',
-                text: `Assunto: Havan Labs - Help Desk - CAIXA - Maquineta POS - Falha\n\nVerificar maquineta de POS. FL. \n\nMarca: REDE | N/S(Rede): [Campo de Texto] | Operadora: [Campo de Texto]\n\nDescrever o problema: [Campo de Texto]`
-            },
-            'HD_EMAIL_PROBLEMA': {
-                name: 'E-mail - Problemas (Acesso, Recebimento, Teams, Auth)',
-                text: `Assunto: Havan Labs - Help Desk - E-mail - Problema\n\nVerificar problema de E-mail. FL.\n\nFoi verificado o seguinte problema abaixo:\n[ ] Não realiza acesso a caixa de e-mail. Qual modo de entrada? Aplicativo ou WEB? (Anexar Print)\n[ ] Não está recebendo e-mail de algum remetente? Qual? (Informar) (Anexar Print) (Informar Data)\n[ ] Erro de autentificação no Microsoft Autenticador (Anexar Print) (Informar E-mail)\n[ ] Erro na aplicação Microsoft Teams (Anexar Print)\n[ ] Não possui assinatura de e-mail (e-mail espelho)\n[ ] Conceder acesso a caixa de e-mail compartilhada. Tipo de permissão? [Campo de Texto] E-mail a ser liberado? [Campo de Texto]`
-            },
-            'HD_EMAIL_NOVO_COLABORADOR': {
-                name: 'E-mail - Criação de Usuário/Liberação',
-                text: `Assunto: Havan Labs - Help Desk - E-mail - Novo Colaborador/Liberação\n\nVerificar solicitação de usuário de acesso para o novo colaborador [Colaborador]. FL.\n\nGerente entrou em contato solicitando criação de usuário e senha de acesso para o novo colaborador.\n\nUsuário: [Campo de Texto] (print do simulação de envio de e-mail)\nUsuário Espelho: [Campo de Texto]\n\nLiberações:\n[ ] E-mail - Outlook 365\n[ ] Teams Microsoft`
-            },
-            'HD_EMAIL_SITEF_WEB': {
-                name: 'E-mail - Criação para SITEF WEB',
-                text: `Assunto: Havan Labs - Help Desk - E-mail - Criação para SITEF WEB\n\nCriação de e-mail para uso no SITEF WEB. FL.\n\nNecessário criação de e-mail para uso na plataforma SITEF WEB e redirecionamento dos e-mails recebidos para a caixa: sitefloja@havan.com.br \n\nFilial ** - [Campo de Texto]\nColaborador: ***** [Campo de Texto]\nE-mail: sitef***@havan.com.br [Campo de Texto]\n\nNecessário que o redirecionamento seja feito para: sitefloja@havan.com.br`
-            },
-            'HD_PC_ADM_FALHA': {
-                name: 'Computador ADM/Setor - Falha',
-                text: `Assunto: Havan Labs - Help Desk - Computador ADM - Falha\n\nVerificar Computador do ADM [Setor]\n\nQual o problema? Descrever: [Campo de Texto]\n\nMarca: [Campo de Texto]\nModelo: [Campo de Texto]\nHostname/IP: [Campo de Texto]\nDisco de Armazenamento: HDD [ ] SSD [ ] Tamanho [GB]\nCód/Nome usuário: [Campo de Texto]\nIdentificação da mesa: [Campo de Texto]\n\nConexão do Monitor \n( ) VGA com adaptador VGA/HDMI\n( ) VGA sem adaptador\n( ) Display Port\n( ) HDMI`
-            },
-            'HD_MONITOR_FALHA': {
-                name: 'Monitor - Falha',
-                text: `Assunto: Havan Labs - Help Desk - HARDWARE - Monitor - Falha\n\nVerificar Monitor [TERMINAL] - Fl.\n\nQual o problema? Descrever: [Campo de Texto]\n\nMarca: [Campo de Texto] | Modelo: [Campo de Texto]\n\nMonitor - ( ) VGA ( ) Display Port ( ) HDMI\nPossui adaptador? ( )Sim ( ) Não`
-            },
-            'HD_WEBCAM_FALHA': {
-                name: 'Webcam/Câmera de Biometria - Falha',
-                text: `Assunto: Havan Labs - Help Desk - HARDWARE - Webcam - Falha\n\nVerificar Webcam [TERMINAL] - Fl.\n\nProblema:\n[ ] Está sem a lente\n[ ] Não passa imagem\n[ ] Está quebrada (anexar imagem)\n[ ] Não é reconhecida pelo computador\n[ ] Outro, descreva: [Campo de Texto]\n\nMarca/Modelo:\n[ ] Câmera de Biometria Facial Acesso (Crediário)\n[ ] Lifecam HD 3000 (EducaHavan) \n[ ] HD Pro Webcam C920 (EducaHavan)\nInformar N/S: [Campo de Texto]`
-            },
-            'HD_REDE_FALHA': {
-                name: 'Rede/Conexão - Falha',
-                text: `Assunto: Havan Labs - Help Desk - REDE - Terminal sem Conexão\n\nO terminal do [Terminal] não está conectado na rede. FL.\n\nIP/Host: [Campo de Texto]\nMAC: [Campo de Texto]\nTipo de conexão: [ ]Ethernet [ ]Wireless [ ]Bridge`
-            },
-            'HD_REMOTA_TRAVAMENTO': {
-                name: 'Área Remota - Travamento',
-                text: `Assunto: Havan Labs - Help Desk - Área Remota - Travamento\n\nVerificar travamento na área remota. FL.\n\nEspecifique o problema: [Campo de Texto]\n\nFoi verificado que o servidor Vwts (informar aqui o Nº) está apresentando vários travamentos ao decorrer do dia.\nIP do terminal: [Campo de Texto]\nNLB: [Campo de Texto]`
-            },
-            'HD_ACESSOS_SISTEMA_GERENCIAL': {
-                name: 'Acessos - Sistema Remoto Gerencial',
-                text: `Assunto: Havan Labs - Help Desk - ACESSOS - Sistema Remoto Gerencial\n\nLiberação de acesso ao sistema remoto Gerencial FL\n\nO gerente da filial irá entrar em período de férias, portanto será necessário fornecer permissionamento para o colaborador abaixo.\nColaborador Solicitante: [Campo de Texto] \nNLB: (172.16.0.71)`
-            },
-            'HD_ACESSOS_BLOQUEIO_SITE': {
-                name: 'Acessos - Bloqueio/Liberação de Site',
-                text: `Assunto: Havan Labs - Help Desk - ACESSOS - Bloqueio/Liberação de Site\n\nVerificar Bloqueio de acesso ao site. FL. \n\nLiberação de Acesso a Internet.\nUsuário: [Campo de Texto]\nIP do PC: [Campo de Texto] \nFilial: [Campo de Texto]\nURL: [Campo de Texto]\nMotivo: [Campo de Texto]\n\n*Anexar print do bloqueio.`
-            },
-            'HD_RF_SOFTWARE_FALHA': {
-                name: 'RF (Software) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - RF - Software - Falha\n\nSOFTWARE: Verificar RF [SETOR]. FL. \n\nMarca: [Honeywell - Datalogic]\nSetor:\n[ ] Depósito .57\n[ ] Visual .58\n[ ] Lista .59\n\nProblema:\n[ ] RF está sem rede - MAC: [Campo de Texto]\n[ ] RF não acessa conexão remota - NLB: [Campo de Texto]\n[ ] RF não está lendo produtos\n[ ] RF pinga mas não acessa (Anexar print do ping)\n[ ] RF está com IP fora do padrão - MAC: [Campo de Texto]\n[ ] Outro, explique: [Campo de Texto]`
-            },
-            'HD_RF_HARDWARE_FALHA': {
-                name: 'RF (Hardware) - Carregador/Dano',
-                text: `Assunto: Havan Labs - Help Desk - RF - Hardware - Carregador\n\nHARDWARE: Verificar carregador de RF [SETOR] - Fl.\n\nMarca: [Honeywell - Datalogic]\n\nProblema:\n[ ] Carregador com fios expostos\n[ ] Não carrega\n[ ] Pino do carregador quebrado\n[ ] Outros\n\n*Necessário ter foto do equipamento mesmo não sendo falha aparente.`
-            },
-            'HD_MOBICONTROL_SOFTWARE': {
-                name: 'Mobicontrol (Software) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - MOBICONTROL - Software - Falha\n\nSOFTWARE: Verificar celular [NOME NO MOBICONTROL]. FL.\n\nSetor:\n[ ] Pacote - ()01 ()02 ()03 () Todos\n[ ] Cadastro ()01 ()02 () Todos\n[ ] RFID\n[ ] Vendas - Vendedor: [Campo de Texto] - () Todos\n[ ] Havan.com - ()01 ()02 ()03\n\nProblema:\n[ ] Sem Rede\n[ ] Celular estava travado\n[ ] Lentidão no aplicativo: [NOME DO APP]\n[ ] Celular foi resetado ao modo de fábrica\n[ ] Aplicativo [NOME DO APP] está como Pacote não encontrado/não abre\n[ ] Outro, descreva: [Campo de Texto] \n\nIP: [Campo de Texto] | IMEI: [Campo de Texto] | MAC: [Campo de Texto]`
-            },
-            'HD_MOBICONTROL_HARDWARE': {
-                name: 'Mobicontrol (Hardware) - Falha',
-                text: `Assunto: Havan Labs - Help Desk - MOBICONTROL - Hardware - Falha\n\nHARDWARE: Verificar celular [NOME NO MOBICONTROL]. FL.\n\nSetor:\n[ ] Pacote - () 01 () 02 () 03 - [] Todos\n[ ] Cadastro - () 01 () 02 - [] Todos\n[ ] Vendas - Vendedor: [Campo de Texto] - [] Todos\n[ ] RFID\n\nProblema: \n[ ] Não liga\n[ ] Celular estava travado\n[ ] Touchscreen não funciona\n[ ] Tela está com avaria; (anexar imagem)\n[ ] Outro, descreva: [Campo de Texto]\n\nIP: [Campo de Texto] | IMEI: [Campo de Texto] | MAC: [Campo de Texto]`
-            },
-            'HD_INFINITE_VENDA': {
-                name: 'Infinite - Erro ao Realizar Venda',
-                text: `Assunto: Havan Labs - Help Desk - INFINITE - Erro ao Vender\n\nVerificar erro ao realizar venda no Infinite. FL.\n\nColaborador (a) entrou em contato informando que está com problemas para realizar a venda via Infinite.\n\nMensagem de erro: [Campo de Texto]\nCliente: [Campo de Texto] | Produto: [Campo de Texto]\nModalidade de venda: () Despacho loja () Retira fácil () Venda Futura () Venda Normal ()Venda Ordem\nForma de pagamento: [Campo de Texto]\nCep: [Campo de Texto] Endereço: [Campo de Texto]\nIP do mobile: [Campo de Texto]\n\n**Necessário anexar vídeo do procedimento.`
-            },
-            'HD_NOTAS_FISCAIS': {
-                name: 'Notas Fiscais - Erro de Emissão/Transmissão',
-                text: `Assunto: Havan Labs - Help Desk - NOTAS FISCAIS - Erro de Emissão\n\nERRO AO EMITIR NOTA FISCAL. FL.\n\nO colaborador (a), entrou em contato informando que não estava sendo possível realizar a emissão ou transmissão de nota fiscal.\n\nSelecione o que melhor corresponder a solicitação:\n() - Consumo Indevido. [Consulte NT 2018.002 v1.00]\n() - Processamento pendente\n() - Não respondendo\n() - Tempo limite excedido\n() - Sefaz estado [] Indisponível\n() - IE não foi informado\n() - Falha no Schema XML\n() - Rejeição, Qual? Especifique: [Campo de Texto]\n\nCliente: Nome | Operação: () - Saída ou () - Entrada | Valor: ####\nData operação: ##/##/#### | Documento ( Nº Nota ): ########## | NOP: ######\nSituação nota: () - Cancelada ou () - Autorizada\n\n** Anexar imagem do erro**`
-            },
-            'HD_RADIO_FALHA': {
-                name: 'Rádio/Microfone - Falha',
-                text: `Assunto: Havan Labs - Help Desk - RÁDIO - Falha\n\nRÁDIO. FL. \nO que aconteceu?\n[ ] Anuncio de placas não está funcionando\n[ ] Rádio interna não toca em determinado setor - Setor: [Campo de Texto]\n[ ] Programação: [ ]Parou, [ ]Não Iniciou, [ ]Não Terminou\n[ ] Volume do(a) [ ]Rádio, [ ]Anúncio de placas, [ ]Microfone, estava: [ ]Alto; [ ]Baixo; [ ]Mudo\n[ ] Outro, explique: [Campo de Texto]\n\n--- Microfone do Cadastro ---\n\nVerificar microfone do cadastro. FL.  \nQual o problema?\n[ ] Microfone não liga\n[ ] Apresenta ruído durante o uso\n[ ] Apresenta dano físico (anexar imagem)\n[ ] Microfone não interrompe a rádio ao usar e o som do microfone: [ ]É audível; [ ]Não sai\n[ ] Outro, Explique: [Campo de Texto]`
-            },
-            'HD_TELEFONIA_RAMAL': {
-                name: 'Telefonia/Ramal - Falha',
-                text: `Assunto: Havan Labs - Help Desk - TELEFONIA - Falha\n\nVERIFICAR TELEFONIA. FL. \n\nProblema de: [ ] LIGAÇÃO INTERNA [ ] LIGAÇÃO EXTERNA\nAo: [ ] RECEBER [ ] FAZER\nCom algum ramal específico?\n[ ] Não, são todos\n[ ] Sim, é com apenas o: [Campo de Texto]\nDetalhes: [Campo de Texto]\n\n--- Ramal Físico ---\n\nVerificar telefone [Setor - número] - Fl.\n[ ] Ramal não liga\n[ ] Patch-Cords invertidos\n[ ] LEDS piscando/Ramal mudo\n[ ] Cabo espiral com fios expostos/mal contato\n[ ] Outros, descreva: [Campo de Texto]\nMarca: [ ] Yealink; [ ] Intelbras; [ ] Khomp; Modelo: [Campo de Texto]`
-            },
-            'HD_RELOGIO_PONTO': {
-                name: 'Relógio Ponto - Falha',
-                text: `Assunto: Havan Labs - Help Desk - RELÓGIO - Falha\n\nVerificar Relógio Ponto - Fl.\n\nMarca/Modelo:\n[ ] Dimep-printpoint II (preto-modelo velho)\n[ ] Dimep-printpoint III (cinza modelo novo)\n[ ] Dimep Smart Print (preto, parte de baixo arredondada)\n\nNúmero de série: [Campo de Texto] \n\nProblema:\n[ ] Não liga\n[ ] Registros não estão sendo importados\n[ ] Equipamento bloqueado (Rap Manutenção)\n[ ] Não corta papel/Atolamento de papel\n[ ] Impressão apagada\n[ ] Dano físico.\n[ ] Outro, descreva: [Campo de Texto]\n\n*Anexar mídia do problema.`
-            },
-            'HD_TV_INTERNA': {
-                name: 'TV Interna - Falha',
-                text: `Assunto: Havan Labs - Help Desk - TV - Falha\n\nVerificar problema na TV interna [Setor] - Fl.\n\nTipo de conexão do painel:\n[ ] HDMI\n[ ] Coaxial\n\nO que aconteceu:\n[ ] Programação não iniciou\n[ ] Programação travada (anexar Vídeo)\n[ ] TVs sem sinal (Especificar os testes)\n[ ] Outro, explique: [Campo de Texto]`
-            },
-            'HD_RELATORIO_FALHA': {
-                name: 'Relatório - Falha ao Gerar',
-                text: `Assunto: Havan Labs - Help Desk - RELATÓRIO - Falha ao Gerar\n\nVerificar falha ao gerar relatório [Setor] - Fl.\n\nColaborador(a) entrou em contato informando que o relatório [RELATÓRIO] está apresentando uma falha ao ser gerado.\n\nProblema:\n[ ] Gera o relatório em branco;\n[ ] Apresenta uma mensagem de erro; (print em anexo.)\n[ ] Encontra-se desatualizado;\n[ ] Busca informações incoerentes com o filtro;\n[ ] Outros; (explique): [Campo de Texto]\n\nCaminho: [Campo de Texto] | Filtros: [Campo de Texto] | Data: [Campo de Texto]`
-            },
-            'HD_APPHAVAN_ERRO': {
-                name: 'SuperApp Havan - Erro',
-                text: `Assunto: Havan Labs - Help Desk - APP HAVAN - Erro\n\nVerificar erro no SuperApp Havan. FL \n\nPara melhor análise, preencha as informações abaixo:\nNome do cliente: [Campo de Texto] | Cpf ou Código: [Campo de Texto]\nDescreva o erro: [Campo de Texto]\n\nO problema ocorre em qual momento?\n[ ] Login [ ] Recuperar a senha [ ] Biometria [ ] Acesso a faturas.\nSistema Operacional (Android ou iOS): [Campo de Texto]\nMarca (opcional): [Campo de Texto] | Modelo: [Campo de Texto] | Versão do Aplicativo: [Campo de Texto]`
-            },
-            'HD_CADASTRO_NOVO_PERFIL': {
-                name: 'Criação de Novo Perfil de Rede',
-                text: `Assunto: Havan Labs - Help Desk - CADASTRO - Criação de Novo Perfil de Rede\n\nCRIAR NOVO PERFIL DE REDE.\n\nNome completo: [Campo de Texto]\nCódigo: [Campo de Texto]\nData início: [Campo de Texto]\nReadmitido: () Sim () Não\nE-mail: () Sim () Não\nUsuário espelho para herdar as mesmas permissões: [Campo de Texto]\n(Remoto) E-mail pessoal para envio das informações de login: [Campo de Texto]`
-            },
-            'HD_OUTROS_TERMO_RESPONSABILIDADE': {
-                name: 'Outros - Solicitação de Termo de Responsabilidade',
-                text: `Assunto: Havan Labs - Help Desk - OUTROS - Termo de Responsabilidade\n\nSOLICITO TERMO DE RESPONSABILIDADE. FL. (Do jeito que o Ilson gosta)\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Setor: [Campo de Texto]\n\nEquipamento: [Campo de Texto]\nFabricante: [Campo de Texto]\nModelo: [Campo de Texto]\nNúmero de Série: [Campo de Texto]\nIMEI: [Campo de Texto]`
-            },
-             'HD_OUTROS_WHATSAPP_BUSINESS_LIDER': {
-                name: 'Outros - Cadastro WhatsApp Business (Líder)',
-                text: `Assunto: Havan Labs - Help Desk - OUTROS - Cadastrar WhatsApp Business (Líder)\n\nCADASTRAR WHATSAPP BUSINESS [LÍDER]. FL.\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Número: [Campo de Texto]\n[ ] Líder não possui número\n\nSituação:\n[ ] Aumento de quadro;\n[ ] Líder novo;\n\nAlgum líder foi recentemente dispensado?\n[ ] Não\n[ ] Sim. Código/Nome: [Campo de Texto]`
-            },
-            'HD_OUTROS_WHATSAPP_BUSINESS_VENDEDOR': {
-                name: 'Outros - Cadastro WhatsApp Business (Vendedor)',
-                text: `Assunto: Havan Labs - Help Desk - OUTROS - Cadastrar WhatsApp Business (Vendedor)\n\nCADASTRAR WHATSAPP BUSINESS [VENDEDOR]. FL.\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Número: [Campo de Texto]\n[ ] Vendedor não possui número\n\nSituação:\n[ ] Aumento de quadro;\n[ ] Colaborador promovido;`
-            },
-            'HD_TEAMS_REUNIAO': {
-                name: 'Teams - Auxílio Reunião',
-                text: `Assunto: Havan Labs - Help Desk - SOFTWARE - Auxílio Reunião Teams\n\nAuxílio reunião via TEAMS terminal [Terminal]. FL.\n\nColaborador(a) entrou em contato solicitando auxílio para participar de uma reunião.\n( ) Microfone inativo\n( ) Webcam sem imagem\n( ) Link de reunião inválido\n( ) Outros: Explique - [Campo de Texto]`
-            }
-        };
+    'HD_IMPRESSORA_CAIXA': {
+        name: 'Impressora de Caixa (ECF/NFCe) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - ECF/NFCe - Falha\n\n[IMPRESSORA] Verificar impressora de caixa [PDV ]. FL.\n\nMarca/Modelo:\n[ ] Elgin I9\n[ ] Epson TM-T900F\n[ ] Bematech - Modelo: [Campo de Texto]\n\nNúmero de Série: [Campo de Texto]\n\nO que aconteceu?\n[ ] Não liga\n[ ] Travou durante a venda\n[ ] Encravamento de papel\n[ ] Impressão está saindo com falha/borrada\n[ ] ECF Bloqueada - Motivo do bloqueio: [Campo de Texto]\n[ ] ECF com data/hora divergente\n[ ] Não é reconhecido pelo computador\n[ ] Outros, explique: [Campo de Texto]`
+    },
+    'HD_IMPRESSORA_SETOR': {
+        name: 'Impressora Setor (Ricoh/Samsung/HP) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Setor - Falha\n\nVerificar impressora [Setor]. FL.\n\nMarca: Ricoh [ ] Sansung [ ] HP [ ]\nModelo: [Campo de Texto]\nNº DE SÉRIE DO EQUIPAMENTO: [Campo de Texto] (INFORMAÇÃO OBRIGATÓRIA)\n\nProblemas:\n[ ] Atolamento de papel, em qual parte? [Campo de Texto]\n[ ] Tampa quebrada, qual delas? [Campo de Texto]\n[ ] Apresentando o seguinte erro: [Campo de Texto] (Ex: SC542)\n[ ] Apresentando ruídos quando envia uma impressão, foi trocado o toner?`
+    },
+    'HD_IMPRESSORA_ZEBRA': {
+        name: 'Impressora Zebra (Depósito) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Zebra Depósito - Falha\n\n[SOFTWARE] Verificar impressora [Zebra Depósito]. FL. \n\nColaborador(a) entrou em contato informando o seguinte problema:\n[ ] Impressora não está calibrando - *ANEXAR FOTO DO LASER*\n[ ] Impressão saindo fraca/borrada - *ANEXAR FOTO DOS CILINDROS E DA CABEÇA DE IMPRESSÃO*\n[ ] Impressora sem rede - MAC: [Campo de Texto] (anexar foto)\n[ ] Impressora nova precisa de reserva - MAC: [Campo de Texto] (anexar foto)\n[ ] Fonte de cabeça para baixo/desconfigurada - *ANEXAR FOTO*\n[ ] Outros(Explique): [Campo de Texto] \n\nAnexar obrigatoriamente foto da etiqueta que está sendo usada. Inserir anexo do problema.`
+    },
+    'HD_CAIXA_PINPAD': {
+        name: 'CAIXA - Pinpad (PPC-930) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - CAIXA - Pinpad - Falha\n\nVerificar pinpad do PDV [PDV]. FL.\n\nMarca: REDE | Modelo: PPC-930 | Número de série: [Campo de Texto]\n\nDescrição: O que aconteceu?\n[ ] Não liga\n[ ] Não lê cartão tarja\n[ ] Travou durante a venda\n[ ] Não lê cartão com chip\n[ ] Não lê cartão (nenhum tipo)\n[ ] Não é reconhecido pelo computador\n[ ] Outro, explique: [Campo de Texto]`
+    },
+    'HD_CAIXA_LEITOR': {
+        name: 'CAIXA - Leitor de Código de Barras - Falha',
+        text: `Assunto: Havan Labs - Help Desk - CAIXA - Leitor - Falha\n\nVerificar Leitor do PDV [PDV]. FL.\n\nProblema:\n[ ] O leitor dá retorno sonoro, mas não está lendo os código de barras\n[ ] O leitor sem retorno sonoro e sem ler os código de barras\n[ ] O leitor não está ligando\n[ ] Outro, descreva: [Campo de Texto]\n\nMarca: [Campo de Texto] | Modelo: [Campo de Texto] | S/N: [Campo de Texto] | Garantia: [Campo de Texto] | Adaptador: [ ]sim [ ] não`
+    },
+    'HD_CAIXA_NFCESAT_INTEGRACAO': {
+        name: 'CAIXA - Erro de Integração NFC-e / SAT',
+        text: `Assunto: Havan Labs - Help Desk - CAIXA - Integração NFC-e/SAT - Falha\n\nVerificar erro de Integração NFC-e / SAT. FL.\n\nLoja entrou em contato, informando que ao iniciar o sistema do PDV reporta a mensagem de erro:\n"Atenção! Integração NFCe/SAT indisponivel! Contate o suporte através do ramal 25105025"`
+    },
+    'HD_CAIXA_POS': {
+        name: 'CAIXA - Maquineta de POS (GETNET)',
+        text: `Assunto: Havan Labs - Help Desk - CAIXA - Maquineta POS - Falha\n\nVerificar maquineta de POS. FL. \n\nMarca: GETNET | N/S(Rede): [Campo de Texto] | Operadora: [Campo de Texto]\n\nDescrever o problema: [Campo de Texto]`
+    },
+    'HD_EMAIL_PROBLEMA': {
+        name: 'E-mail - Problemas (Acesso, Recebimento, Teams, Auth)',
+        text: `Assunto: Havan Labs - Help Desk - E-mail - Problema\n\nVerificar problema de E-mail. FL.\n\nFoi verificado o seguinte problema abaixo:\n[ ] Não realiza acesso a caixa de e-mail. Qual modo de entrada? Aplicativo ou WEB? (Anexar Print)\n[ ] Não está recebendo e-mail de algum remetente? Qual? (Informar) (Anexar Print) (Informar Data)\n[ ] Erro de autentificação no Microsoft Autenticador (Anexar Print) (Informar E-mail)\n[ ] Erro na aplicação Microsoft Teams (Anexar Print)\n[ ] Não possui assinatura de e-mail (e-mail espelho)\n[ ] Conceder acesso a caixa de e-mail compartilhada. Tipo de permissão? [Campo de Texto] E-mail a ser liberado? [Campo de Texto]`
+    },
+    'HD_EMAIL_NOVO_COLABORADOR': {
+        name: 'E-mail - Criação de Usuário/Liberação',
+        text: `Assunto: Havan Labs - Help Desk - E-mail - Novo Colaborador/Liberação\n\nVerificar solicitação de usuário de acesso para o novo colaborador [Colaborador]. FL.\n\nGerente entrou em contato solicitando criação de usuário e senha de acesso para o novo colaborador.\n\nUsuário: [Campo de Texto] (print do simulação de envio de e-mail)\nUsuário Espelho: [Campo de Texto]\n\nLiberações:\n[ ] E-mail - Outlook 365\n[ ] Teams Microsoft`
+    },
+    'HD_EMAIL_SITEF_WEB': {
+        name: 'E-mail - Criação para SITEF WEB',
+        text: `Assunto: Havan Labs - Help Desk - E-mail - Criação para SITEF WEB\n\nCriação de e-mail para uso no SITEF WEB. FL.\n\nNecessário criação de e-mail para uso na plataforma SITEF WEB e redirecionamento dos e-mails recebidos para a caixa: sitefloja@havan.com.br \n\nFilial ** - [Campo de Texto]\nColaborador: ***** [Campo de Texto]\nE-mail: sitef***@havan.com.br [Campo de Texto]\n\nNecessário que o redirecionamento seja feito para: sitefloja@havan.com.br`
+    },
+    'HD_PC_ADM_FALHA': {
+        name: 'Computador ADM/Setor - Falha',
+        text: `Assunto: Havan Labs - Help Desk - Computador ADM - Falha\n\nVerificar Computador do ADM [Setor]\n\nQual o problema? Descrever: [Campo de Texto]\n\nMarca: [Campo de Texto]\nModelo: [Campo de Texto]\nHostname/IP: [Campo de Texto]\nDisco de Armazenamento: HDD [ ] SSD [ ] Tamanho [GB]\nCód/Nome usuário: [Campo de Texto]\nIdentificação da mesa: [Campo de Texto]\n\nConexão do Monitor \n( ) VGA com adaptador VGA/HDMI\n( ) VGA sem adaptador\n( ) Display Port\n( ) HDMI`
+    },
+    'HD_MONITOR_FALHA': {
+        name: 'Monitor - Falha',
+        text: `Assunto: Havan Labs - Help Desk - HARDWARE - Monitor - Falha\n\nVerificar Monitor [TERMINAL] - Fl.\n\nQual o problema? Descrever: [Campo de Texto]\n\nMarca: [Campo de Texto] | Modelo: [Campo de Texto]\n\nMonitor - ( ) VGA ( ) Display Port ( ) HDMI\nPossui adaptador? ( )Sim ( ) Não`
+    },
+    'HD_WEBCAM_FALHA': {
+        name: 'Webcam/Câmera de Biometria - Falha',
+        text: `Assunto: Havan Labs - Help Desk - HARDWARE - Webcam - Falha\n\nVerificar Webcam [TERMINAL] - Fl.\n\nProblema:\n[ ] Está sem a lente\n[ ] Não passa imagem\n[ ] Está quebrada (anexar imagem)\n[ ] Não é reconhecida pelo computador\n[ ] Outro, descreva: [Campo de Texto]\n\nMarca/Modelo:\n[ ] Câmera de Biometria Facial Acesso (Crediário)\n[ ] Lifecam HD 3000 (EducaHavan) \n[ ] HD Pro Webcam C920 (EducaHavan)\nInformar N/S: [Campo de Texto]`
+    },
+    'HD_REDE_FALHA': {
+        name: 'Rede/Conexão - Falha',
+        text: `Assunto: Havan Labs - Help Desk - REDE - Terminal sem Conexão\n\nO terminal do [Terminal] não está conectado na rede. FL.\n\nIP/Host: [Campo de Texto]\nMAC: [Campo de Texto]\nTipo de conexão: [ ]Ethernet [ ]Wireless [ ]Bridge`
+    },
+    'HD_REMOTA_TRAVAMENTO': {
+        name: 'Área Remota - Travamento',
+        text: `Assunto: Havan Labs - Help Desk - Área Remota - Travamento\n\nVerificar travamento na área remota. FL.\n\nEspecifique o problema: [Campo de Texto]\n\nFoi verificado que o servidor Vwts (informar aqui o Nº) está apresentando vários travamentos ao decorrer do dia.\nIP do terminal: [Campo de Texto]\nNLB: [Campo de Texto]`
+    },
+    'HD_ACESSOS_SISTEMA_GERENCIAL': {
+        name: 'Acessos - Sistema Remoto Gerencial',
+        text: `Assunto: Havan Labs - Help Desk - ACESSOS - Sistema Remoto Gerencial\n\nLiberação de acesso ao sistema remoto Gerencial FL\n\nO gerente da filial irá entrar em período de férias, portanto será necessário fornecer permissionamento para o colaborador abaixo.\nColaborador Solicitante: [Campo de Texto] \nNLB: (172.16.0.71)`
+    },
+    'HD_ACESSOS_BLOQUEIO_SITE': {
+        name: 'Acessos - Bloqueio/Liberação de Site',
+        text: `Assunto: Havan Labs - Help Desk - ACESSOS - Bloqueio/Liberação de Site\n\nVerificar Bloqueio de acesso ao site. FL. \n\nLiberação de Acesso a Internet.\nUsuário: [Campo de Texto]\nIP do PC: [Campo de Texto] \nFilial: [Campo de Texto]\nURL: [Campo de Texto]\nMotivo: [Campo de Texto]\n\n*Anexar print do bloqueio.`
+    },
+    'HD_RF_SOFTWARE_FALHA': {
+        name: 'RF (Software) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - RF - Software - Falha\n\nSOFTWARE: Verificar RF [SETOR]. FL. \n\nMarca: [Honeywell - Datalogic]\nSetor:\n[ ] Depósito .57\n[ ] Visual .58\n[ ] Lista .59\n\nProblema:\n[ ] RF está sem rede - MAC: [Campo de Texto]\n[ ] RF não acessa conexão remota - NLB: [Campo de Texto]\n[ ] RF não está lendo produtos\n[ ] RF pinga mas não acessa (Anexar print do ping)\n[ ] RF está com IP fora do padrão - MAC: [Campo de Texto]\n[ ] Outro, explique: [Campo de Texto]`
+    },
+    'HD_RF_HARDWARE_FALHA': {
+        name: 'RF (Hardware) - Carregador/Dano',
+        text: `Assunto: Havan Labs - Help Desk - RF - Hardware - Carregador\n\nHARDWARE: Verificar carregador de RF [SETOR] - Fl.\n\nMarca: [Honeywell - Datalogic]\n\nProblema:\n[ ] Carregador com fios expostos\n[ ] Não carrega\n[ ] Pino do carregador quebrado\n[ ] Outros\n\n*Necessário ter foto do equipamento mesmo não sendo falha aparente.`
+    },
+    'HD_MOBICONTROL_SOFTWARE': {
+        name: 'Celular (Software) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - MOBICONTROL - Software - Falha\n\nSOFTWARE: Verificar celular [NOME NO MOBICONTROL]. FL.\n\nSetor:\n[ ] Pacote - ()01 ()02 ()03 () Todos\n[ ] Cadastro ()01 ()02 () Todos\n[ ] RFID\n[ ] Vendas - Vendedor: [Campo de Texto] - () Todos\n[ ] Havan.com - ()01 ()02 ()03\n\nProblema:\n[ ] Sem Rede\n[ ] Celular estava travado\n[ ] Lentidão no aplicativo: [NOME DO APP]\n[ ] Celular foi resetado ao modo de fábrica\n[ ] Aplicativo [NOME DO APP] está como Pacote não encontrado/não abre\n[ ] Outro, descreva: [Campo de Texto] \n\nIP: [Campo de Texto] | IMEI: [Campo de Texto] | MAC: [Campo de Texto]`
+    },
+    'HD_MOBICONTROL_HARDWARE': {
+        name: 'Celular (Hardware) - Falha',
+        text: `Assunto: Havan Labs - Help Desk - MOBICONTROL - Hardware - Falha\n\nHARDWARE: Verificar celular [NOME NO MOBICONTROL]. FL.\n\nSetor:\n[ ] Pacote - () 01 () 02 () 03 - [] Todos\n[ ] Cadastro - () 01 () 02 - [] Todos\n[ ] Vendas - Vendedor: [Campo de Texto] - [] Todos\n[ ] RFID\n\nProblema: \n[ ] Não liga\n[ ] Celular estava travado\n[ ] Touchscreen não funciona\n[ ] Tela está com avaria; (anexar imagem)\n[ ] Outro, descreva: [Campo de Texto]\n\nIP: [Campo de Texto] | IMEI: [Campo de Texto] | MAC: [Campo de Texto]`
+    },
+    'HD_INFINITE_VENDA': {
+        name: 'Infinite - Erro ao Realizar Venda',
+        text: `Assunto: Havan Labs - Help Desk - INFINITE - Erro ao Vender\n\nVerificar erro ao realizar venda no Infinite. FL.\n\nColaborador (a) entrou em contato informando que está com problemas para realizar a venda via Infinite.\n\nMensagem de erro: [Campo de Texto]\nCliente: [Campo de Texto] | Produto: [Campo de Texto]\nModalidade de venda: () Despacho loja () Retira fácil () Venda Futura () Venda Normal ()Venda Ordem\nForma de pagamento: [Campo de Texto]\nCep: [Campo de Texto] Endereço: [Campo de Texto]\nIP do mobile: [Campo de Texto]\n\n**Necessário anexar vídeo do procedimento.`
+    },
+    'HD_NOTAS_FISCAIS': {
+        name: 'Notas Fiscais - Erro de Emissão/Transmissão',
+        text: `Assunto: Havan Labs - Help Desk - NOTAS FISCAIS - Erro de Emissão\n\nERRO AO EMITIR NOTA FISCAL. FL.\n\nO colaborador (a), entrou em contato informando que não estava sendo possível realizar a emissão ou transmissão de nota fiscal.\n\nSelecione o que melhor corresponder a solicitação:\n() - Consumo Indevido. [Consulte NT 2018.002 v1.00]\n() - Processamento pendente\n() - Não respondendo\n() - Tempo limite excedido\n() - Sefaz estado [] Indisponível\n() - IE não foi informado\n() - Falha no Schema XML\n() - Rejeição, Qual? Especifique: [Campo de Texto]\n\nCliente: Nome | Operação: () - Saída ou () - Entrada | Valor: ####\nData operação: ##/##/#### | Documento ( Nº Nota ): ########## | NOP: ######\nSituação nota: () - Cancelada ou () - Autorizada\n\n** Anexar imagem do erro**`
+    },
+    'HD_RADIO_FALHA': {
+        name: 'Rádio/Microfone - Falha',
+        text: `Assunto: Havan Labs - Help Desk - RÁDIO - Falha\n\nRÁDIO. FL. \nO que aconteceu?\n[ ] Anuncio de placas não está funcionando\n[ ] Rádio interna não toca em determinado setor - Setor: [Campo de Texto]\n[ ] Programação: [ ]Parou, [ ]Não Iniciou, [ ]Não Terminou\n[ ] Volume do(a) [ ]Rádio, [ ]Anúncio de placas, [ ]Microfone, estava: [ ]Alto; [ ]Baixo; [ ]Mudo\n[ ] Outro, explique: [Campo de Texto]\n\n--- Microfone do Cadastro ---\n\nVerificar microfone do cadastro. FL.  \nQual o problema?\n[ ] Microfone não liga\n[ ] Apresenta ruído durante o uso\n[ ] Apresenta dano físico (anexar imagem)\n[ ] Microfone não interrompe a rádio ao usar e o som do microfone: [ ]É audível; [ ]Não sai\n[ ] Outro, Explique: [Campo de Texto]`
+    },
+    'HD_TELEFONIA_RAMAL': {
+        name: 'Telefonia/Ramal - Falha',
+        text: `Assunto: Havan Labs - Help Desk - TELEFONIA - Falha\n\nVERIFICAR TELEFONIA. FL. \n\nProblema de: [ ] LIGAÇÃO INTERNA [ ] LIGAÇÃO EXTERNA\nAo: [ ] RECEBER [ ] FAZER\nCom algum ramal específico?\n[ ] Não, são todos\n[ ] Sim, é com apenas o: [Campo de Texto]\nDetalhes: [Campo de Texto]\n\n--- Ramal Físico ---\n\nVerificar telefone [Setor - número] - Fl.\n[ ] Ramal não liga\n[ ] Patch-Cords invertidos\n[ ] LEDS piscando/Ramal mudo\n[ ] Cabo espiral com fios expostos/mal contato\n[ ] Outros, descreva: [Campo de Texto]\nMarca: [ ] Yealink; [ ] Intelbras; [ ] Khomp; Modelo: [Campo de Texto]`
+    },
+    'HD_RELOGIO_PONTO': {
+        name: 'Relógio Ponto - Falha',
+        text: `Assunto: Havan Labs - Help Desk - RELÓGIO - Falha\n\nVerificar Relógio Ponto - Fl.\n\nMarca/Modelo:\n[ ] Dimep-printpoint II (preto-modelo velho)\n[ ] Dimep-printpoint III (cinza modelo novo)\n[ ] Dimep Smart Print (preto, parte de baixo arredondada)\n\nNúmero de série: [Campo de Texto] \n\nProblema:\n[ ] Não liga\n[ ] Registros não estão sendo importados\n[ ] Equipamento bloqueado (Rap Manutenção)\n[ ] Não corta papel/Atolamento de papel\n[ ] Impressão apagada\n[ ] Dano físico.\n[ ] Outro, descreva: [Campo de Texto]\n\n*Anexar mídia do problema.`
+    },
+    'HD_TV_INTERNA': {
+        name: 'TV Interna - Falha',
+        text: `Assunto: Havan Labs - Help Desk - TV - Falha\n\nVerificar problema na TV interna [Setor] - Fl.\n\nTipo de conexão do painel:\n[ ] HDMI\n[ ] Coaxial\n\nO que aconteceu:\n[ ] Programação não iniciou\n[ ] Programação travada (anexar Vídeo)\n[ ] TVs sem sinal (Especificar os testes)\n[ ] Outro, explique: [Campo de Texto]`
+    },
+    'HD_RELATORIO_FALHA': {
+        name: 'Relatório - Falha ao Gerar',
+        text: `Assunto: Havan Labs - Help Desk - RELATÓRIO - Falha ao Gerar\n\nVerificar falha ao gerar relatório [Setor] - Fl.\n\nColaborador(a) entrou em contato informando que o relatório [RELATÓRIO] está apresentando uma falha ao ser gerado.\n\nProblema:\n[ ] Gera o relatório em branco;\n[ ] Apresenta uma mensagem de erro; (print em anexo.)\n[ ] Encontra-se desatualizado;\n[ ] Busca informações incoerentes com o filtro;\n[ ] Outros; (explique): [Campo de Texto]\n\nCaminho: [Campo de Texto] | Filtros: [Campo de Texto] | Data: [Campo de Texto]`
+    },
+    'HD_APPHAVAN_ERRO': {
+        name: 'SuperApp Havan - Erro',
+        text: `Assunto: Havan Labs - Help Desk - APP HAVAN - Erro\n\nVerificar erro no SuperApp Havan. FL \n\nPara melhor análise, preencha as informações abaixo:\nNome do cliente: [Campo de Texto] | Cpf ou Código: [Campo de Texto]\nDescreva o erro: [Campo de Texto]\n\nO problema ocorre em qual momento?\n[ ] Login [ ] Recuperar a senha [ ] Biometria [ ] Acesso a faturas.\nSistema Operacional (Android ou iOS): [Campo de Texto]\nMarca (opcional): [Campo de Texto] | Modelo: [Campo de Texto] | Versão do Aplicativo: [Campo de Texto]`
+    },
+    'HD_CADASTRO_NOVO_PERFIL': {
+        name: 'Criação de Novo Perfil de Rede',
+        text: `Assunto: Havan Labs - Help Desk - CADASTRO - Criação de Novo Perfil de Rede\n\nCRIAR NOVO PERFIL DE REDE.\n\nNome completo: [Campo de Texto]\nCódigo: [Campo de Texto]\nData início: [Campo de Texto]\nReadmitido: () Sim () Não\nE-mail: () Sim () Não\nUsuário espelho para herdar as mesmas permissões: [Campo de Texto]\n(Remoto) E-mail pessoal para envio das informações de login: [Campo de Texto]`
+    },
+    'HD_OUTROS_WHATSAPP_BUSINESS_LIDER': {
+        name: 'Outros - Cadastro WhatsApp Business (Líder)',
+        text: `Assunto: Havan Labs - Help Desk - OUTROS - Cadastrar WhatsApp Business (Líder)\n\nCADASTRAR WHATSAPP BUSINESS [LÍDER]. FL.\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Número: [Campo de Texto]\n[ ] Líder não possui número\n\nSituação:\n[ ] Aumento de quadro;\n[ ] Líder novo;\n\nAlgum líder foi recentemente dispensado?\n[ ] Não\n[ ] Sim. Código/Nome: [Campo de Texto]`
+    },
+    'HD_OUTROS_WHATSAPP_BUSINESS_VENDEDOR': {
+        name: 'Outros - Cadastro WhatsApp Business (Vendedor)',
+        text: `Assunto: Havan Labs - Help Desk - OUTROS - Cadastrar WhatsApp Business (Vendedor)\n\nCADASTRAR WHATSAPP BUSINESS [VENDEDOR]. FL.\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Número: [Campo de Texto]\n[ ] Vendedor não possui número\n\nSituação:\n[ ] Aumento de quadro;\n[ ] Colaborador promovido;`
+    },
+    'HD_TEAMS_REUNIAO': {
+        name: 'Teams - Auxílio Reunião',
+        text: `Assunto: Havan Labs - Help Desk - SOFTWARE - Auxílio Reunião Teams\n\nAuxílio reunião via TEAMS terminal [Terminal]. FL.\n\nColaborador(a) entrou em contato solicitando auxílio para participar de uma reunião.\n( ) Microfone inativo\n( ) Webcam sem imagem\n( ) Link de reunião inválido\n( ) Outros: Explique - [Campo de Texto]`
+    }
+};
 
-        const categorySelect = document.getElementById('categorySelect');
-        const macroSelect = document.getElementById('macroSelect');
-        const macroOutput = document.getElementById('macroOutput');
-        const macroText = document.getElementById('macroText');
-        const feedbackMessage = document.getElementById('feedbackMessage');
-
-        // Estrutura das opções do menu suspenso (MANTIDO INALTERADO)
-        const macroOptions = {
-            'SIGS': [
-                { value: 'SIGS_CAMERA_FALHA', text: '1. CFTV - Câmera - Falha' },
-                { value: 'SIGS_ALARME_SENSOR_PANICO', text: '2. Alarme - Sensor/Pânico - Falha' },
-                { value: 'SIGS_ALARME_CENTRAL_FALHA', text: '3. Alarme - Central - Falha' },
-                { value: 'SIGS_ALARME_CENTRAL_INDIVIDUAL_FALHA', text: '4. Alarme - Central Individual - Falha' },
-                { value: 'SIGS_CONTROLE_ACESSO_FALHA', text: '5. Controle de Acesso - Leitor/Biometria' },
-                { value: 'SIGS_SECURITY_DESK_ERRO_RP_TELA', text: '6. Security Desk - Erro (RP/TELA)' },
-                { value: 'SIGS_SECURITY_DESK_ERRO_TESOURARIA', text: '7. Security Desk - Erro (TESOURARIA)' },
-                { value: 'SIGS_SECURITY_DESK_LAYOUT', text: '8. Security Desk - Alteração de Layout' },
-                { value: 'SIGS_NUUO_ERRO', text: '9. Nuuo - Erro (RP/TESOURARIA)' },
-                { value: 'SIGS_ALARME_SENHA', text: '10. Alarme - Senha (Ativação/Desativação)' }
-            ],
-            'HELP_DESK': [
-                { value: 'HD_IMPRESSORA_CAIXA', text: '1. Impressora de Caixa (ECF/NFCe) - Falha' },
-                { value: 'HD_IMPRESSORA_SETOR', text: '2. Impressora Setor (Ricoh/Samsung/HP) - Falha' },
-                { value: 'HD_IMPRESSORA_ZEBRA', text: '3. Impressora Zebra (Depósito) - Falha' },
-                { value: 'HD_TROCA_ANTECIPADA_TONER', text: '4. Impressora - Troca Antecipada de Toner (Aviso)' },
-                { value: 'HD_CAIXA_PINPAD', text: '5. CAIXA - Pinpad (PPC-930) - Falha' },
-                { value: 'HD_CAIXA_LEITOR', text: '6. CAIXA - Leitor de Código de Barras - Falha' },
-                { value: 'HD_CAIXA_NFCESAT_INTEGRACAO', text: '7. CAIXA - Erro de Integração NFC-e / SAT' },
-                { value: 'HD_CAIXA_SAT_FALHA', text: '8. CAIXA - SAT - Falha' },
-                { value: 'HD_CAIXA_POS', text: '9. CAIXA - Maquineta de POS (REDE)'},
-                { value: 'HD_NOTAS_FISCAIS', text: '10. Notas Fiscais - Erro de Emissão/Transmissão' },
-                { value: 'HD_EMAIL_PROBLEMA', text: '11. E-mail - Problemas (Acesso, Recebimento, Teams, Auth)' },
-                { value: 'HD_EMAIL_NOVO_COLABORADOR', text: '12. E-mail - Criação de Usuário/Liberação' },
-                { value: 'HD_EMAIL_SITEF_WEB', text: '13. E-mail - Criação para SITEF WEB' },
-                { value: 'HD_PC_ADM_FALHA', text: '14. Computador ADM/Setor - Falha' },
-                { value: 'HD_MONITOR_FALHA', text: '15. Monitor - Falha' },
-                { value: 'HD_WEBCAM_FALHA', text: '16. Webcam/Câmera de Biometria - Falha' },
-                { value: 'HD_REDE_FALHA', text: '17. Rede/Conexão - Falha' },
-                { value: 'HD_REMOTA_TRAVAMENTO', text: '18. Área Remota - Travamento' },
-                { value: 'HD_ACESSOS_SISTEMA_GERENCIAL', text: '19. Acessos - Sistema Remoto Gerencial' },
-                { value: 'HD_ACESSOS_BLOQUEIO_SITE', text: '20. Acessos - Bloqueio/Liberação de Site' },
-                { value: 'HD_RF_SOFTWARE_FALHA', text: '21. RF (Software) - Falha' },
-                { value: 'HD_RF_HARDWARE_FALHA', text: '22. RF (Hardware) - Carregador/Dano' },
-                { value: 'HD_MOBICONTROL_SOFTWARE', text: '23. Mobicontrol (Software) - Falha' },
-                { value: 'HD_MOBICONTROL_HARDWARE', text: '24. Mobicontrol (Hardware) - Falha' },
-                { value: 'HD_INFINITE_VENDA', text: '25. Infinite - Erro ao Realizar Venda' },
-                { value: 'HD_RADIO_FALHA', text: '26. Rádio/Microfone - Falha' },
-                { value: 'HD_TELEFONIA_RAMAL', text: '27. Telefonia/Ramal - Falha' },
-                { value: 'HD_RELOGIO_PONTO', text: '28. Relógio Ponto - Falha' },
-                { value: 'HD_TV_INTERNA', text: '29. TV Interna - Falha' },
-                { value: 'HD_RELATORIO_FALHA', text: '30. Relatório - Falha ao Gerar' },
-                { value: 'HD_APPHAVAN_ERRO', text: '31. SuperApp Havan - Erro' },
-                { value: 'HD_TEAMS_REUNIAO', text: '32. Teams - Auxílio Reunião' },
-                { value: 'HD_CADASTRO_NOVO_PERFIL', text: '33. Cadastro - Criação de Novo Perfil de Rede' },
-                { value: 'HD_OUTROS_TERMO_RESPONSABILIDADE', text: '34. Outros - Solicitação de Termo de Responsabilidade' },
-                { value: 'HD_OUTROS_WHATSAPP_BUSINESS_LIDER', text: '35. Outros - Cadastro WhatsApp Business (Líder)' },
-                { value: 'HD_OUTROS_WHATSAPP_BUSINESS_VENDEDOR', text: '36. Outros - Cadastro WhatsApp Business (Vendedor)' }
-            ]
-        };
-
+const macroOptions = {
+    // A seção 'SIGS' foi mantida inalterada
+    'SIGS': [
+        { value: 'SIGS_CAMERA_FALHA', text: '1. CFTV - Câmera - Falha' },
+        { value: 'SIGS_ALARME_SENSOR_PANICO', text: '2. Alarme - Sensor/Pânico - Falha' },
+        { value: 'SIGS_ALARME_CENTRAL_FALHA', text: '3. Alarme - Central - Falha' },
+        { value: 'SIGS_ALARME_CENTRAL_INDIVIDUAL_FALHA', text: '4. Alarme - Central Individual - Falha' },
+        { value: 'SIGS_CONTROLE_ACESSO_FALHA', text: '5. Controle de Acesso - Leitor/Biometria' },
+        { value: 'SIGS_SECURITY_DESK_ERRO_RP_TELA', text: '6. Security Desk - Erro (RP/TELA)' },
+        { value: 'SIGS_SECURITY_DESK_ERRO_TESOURARIA', text: '7. Security Desk - Erro (TESOURARIA)' },
+        { value: 'SIGS_SECURITY_DESK_LAYOUT', text: '8. Security Desk - Alteração de Layout' },
+        { value: 'SIGS_NUUO_ERRO', text: '9. Nuuo - Erro (RP/TESOURARIA)' },
+        { value: 'SIGS_ALARME_SENHA', text: '10. Alarme - Senha (Ativação/Desativação)' }
+    ],
+    // A seção 'HELP_DESK' foi corrigida
+    'HELP_DESK': [
+        { value: 'HD_IMPRESSORA_CAIXA', text: '1. Impressora de Caixa (ECF/NFCe) - Falha' },
+        { value: 'HD_IMPRESSORA_SETOR', text: '2. Impressora Setor (Ricoh/Samsung/HP) - Falha' },
+        { value: 'HD_IMPRESSORA_ZEBRA', text: '3. Impressora Zebra (Depósito) - Falha' },
+        { value: 'HD_CAIXA_PINPAD', text: '4. CAIXA - Pinpad (PPC-930) - Falha' },
+        { value: 'HD_CAIXA_LEITOR', text: '5. CAIXA - Leitor de Código de Barras - Falha' },
+        { value: 'HD_CAIXA_NFCESAT_INTEGRACAO', text: '6. CAIXA - Erro de Integração NFC-e / SAT' },
+        { value: 'HD_CAIXA_POS', text: '7. CAIXA - Maquineta de POS (GETNET)' }, // Alterado o nome para GETNET
+        { value: 'HD_NOTAS_FISCAIS', text: '8. Notas Fiscais - Erro de Emissão/Transmissão' },
+        { value: 'HD_EMAIL_PROBLEMA', text: '9. E-mail - Problemas (Acesso, Recebimento, Teams, Auth)' },
+        { value: 'HD_EMAIL_NOVO_COLABORADOR', text: '10. E-mail - Criação de Usuário/Liberação' },
+        { value: 'HD_EMAIL_SITEF_WEB', text: '11. E-mail - Criação para SITEF WEB' },
+        { value: 'HD_PC_ADM_FALHA', text: '12. Computador ADM/Setor - Falha' },
+        { value: 'HD_MONITOR_FALHA', text: '13. Monitor - Falha' },
+        { value: 'HD_WEBCAM_FALHA', text: '14. Webcam/Câmera de Biometria - Falha' },
+        { value: 'HD_REDE_FALHA', text: '15. Rede/Conexão - Falha' },
+        { value: 'HD_REMOTA_TRAVAMENTO', text: '16. Área Remota - Travamento' },
+        { value: 'HD_ACESSOS_SISTEMA_GERENCIAL', text: '17. Acessos - Sistema Remoto Gerencial' },
+        { value: 'HD_ACESSOS_BLOQUEIO_SITE', text: '18. Acessos - Bloqueio/Liberação de Site' },
+        { value: 'HD_RF_SOFTWARE_FALHA', text: '19. RF (Software) - Falha' },
+        { value: 'HD_RF_HARDWARE_FALHA', text: '20. RF (Hardware) - Carregador/Dano' },
+        { value: 'HD_MOBICONTROL_SOFTWARE', text: '21. Celular (Software) - Falha' }, // Alterado de Mobicontrol
+        { value: 'HD_MOBICONTROL_HARDWARE', text: '22. Celular (Hardware) - Falha' }, // Alterado de Mobicontrol
+        { value: 'HD_INFINITE_VENDA', text: '23. Infinite - Erro ao Realizar Venda' },
+        { value: 'HD_RADIO_FALHA', text: '24. Rádio/Microfone - Falha' },
+        { value: 'HD_TELEFONIA_RAMAL', text: '25. Telefonia/Ramal - Falha' },
+        { value: 'HD_RELOGIO_PONTO', text: '26. Relógio Ponto - Falha' },
+        { value: 'HD_TV_INTERNA', text: '27. TV Interna - Falha' },
+        { value: 'HD_RELATORIO_FALHA', text: '28. Relatório - Falha ao Gerar' },
+        { value: 'HD_APPHAVAN_ERRO', text: '29. SuperApp Havan - Erro' },
+        { value: 'HD_TEAMS_REUNIAO', text: '30. Teams - Auxílio Reunião' },
+        { value: 'HD_CADASTRO_NOVO_PERFIL', text: '31. Cadastro - Criação de Novo Perfil de Rede' },
+        { value: 'HD_OUTROS_WHATSAPP_BUSINESS_LIDER', text: '32. Outros - Cadastro WhatsApp Business (Líder)' },
+        { value: 'HD_OUTROS_WHATSAPP_BUSINESS_VENDEDOR', text: '33. Outros - Cadastro WhatsApp Business (Vendedor)' }
+    ]
+};
         /**
          * Atualiza as opções do segundo dropdown (macroSelect) com base na categoria selecionada.
          */

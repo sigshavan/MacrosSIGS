@@ -3,49 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGS - Seletor de Macros de Chamado</title>
+    <title>Macros de Chamado - TI Geral e SIGS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #007bff; /* Azul vibrante */
-            --secondary-color: #3f51b5; /* Azul Escuro/Índigo */
+            --primary-color: #3f51b5; /* Azul Escuro/Índigo (Design original) */
+            --secondary-color: #007bff; /* Azul vibrante */
             --background-dark: #1f2025;
             --text-light: #ffffff;
             --text-dark: #333333;
             --card-bg: rgba(255, 255, 255, 0.95);
-            --shadow-light: 0 8px 30px rgba(0, 0, 0, 0.2);
+            --shadow-light: 0 8px 30px rgba(0, 0, 0, 0.3);
             --border-radius: 12px;
+            --accent-green: #28a745;
         }
 
-        /* 1. Estilização Global e Fundo */
+        /* 1. Estilização Global e Fundo (Fundo Azul) */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: var(--background-dark);
             color: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Imagem de Fundo Solicitada */
-            background-image: url('https://i.imgur.com/xrBBnIB_d.jpeg?maxwidth=520&shape=thumb&fidelity=high');
-            background-size: cover;
-            background-position: center;
+            
+            /* 🔵 FUNDO AZUL ESCURO */
+            background-color: #1a237e; /* Azul Escuro */
+            background-image: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);
+            background-size: cover; 
             background-attachment: fixed;
+            
             position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: 0;
+            cursor: default; 
         }
 
         .container {
@@ -53,7 +45,7 @@
             padding: 40px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-light);
-            max-width: 900px;
+            max-width: 950px;
             width: 95%;
             z-index: 1;
         }
@@ -62,46 +54,176 @@
         header {
             text-align: center;
             margin-bottom: 30px;
-            color: var(--secondary-color);
+            color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header h1 {
-            font-size: 2.2em;
+            font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        header p.subtitle {
+            color: #6c757d;
+            font-weight: 400;
+        }
+        
+        /* ESTILO PARA A LOGO */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .liberty-icon {
-            font-size: 1.8em;
-            color: gold;
-            margin-right: 10px;
+        .header-logo {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+        /* ------------------------------------------- */
+
+
+        /* 3. Seletor de Categoria e Macro */
+        .select-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        /* 3. Dropdown e Output */
-        .select-container { margin-bottom: 30px; text-align: center; }
-        .select-container label { display: block; margin-bottom: 15px; font-size: 1.2em; font-weight: 600; }
-        #macroSelect { width: 100%; padding: 12px 15px; border-radius: 8px; border: 2px solid var(--primary-color); background-color: #f8f9fa; font-size: 1em; appearance: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
-        .macro-output { display: none; margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-radius: var(--border-radius); background: #ffffff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
-        #macroText { width: 100%; min-height: 250px; padding: 15px; border: none; border-radius: 6px; background: #f4f7f6; font-family: monospace; font-size: 0.95em; line-height: 1.4; resize: vertical; margin-bottom: 15px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); }
-        .copy-button { display: block; width: 100%; padding: 12px 20px; background-color: var(--primary-color); color: var(--text-light); border: none; border-radius: 8px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4); }
-        .copy-button:hover { background-color: #0056b3; transform: translateY(-2px); }
-        .copy-button:active { transform: translateY(0); }
-        #feedbackMessage { margin-top: 15px; text-align: center; font-weight: 600; color: var(--primary-color); opacity: 0; transition: opacity 0.5s; }
+        .select-container {
+            flex: 1;
+            text-align: left;
+        }
 
-        /* 4. Estilização do GIF no Canto */
+        .select-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .custom-select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 2px solid var(--primary-color);
+            background-color: #f8f9fa;
+            font-size: 1em;
+            appearance: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s;
+        }
+
+        .custom-select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        
+        .custom-select:disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+            border-color: #ced4da;
+        }
+
+
+        /* 4. Output */
+        .macro-output { 
+            display: none; 
+            margin-top: 30px; 
+            padding: 20px; 
+            border: 1px solid #ddd; 
+            border-radius: var(--border-radius); 
+            background: #ffffff; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+        }
+
+        #macroText { 
+            width: 100%; 
+            min-height: 250px; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 6px; 
+            background: #f4f7f6; 
+            font-family: monospace; 
+            font-size: 0.95em; 
+            line-height: 1.4; 
+            resize: vertical; 
+            margin-bottom: 15px; 
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); 
+        }
+
+        .copy-button { 
+            display: block; 
+            width: 100%; 
+            padding: 12px 20px; 
+            background-color: var(--secondary-color); 
+            color: var(--text-light); 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1.1em; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.2s; 
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4); 
+        }
+
+        .copy-button:hover { 
+            background-color: #0056b3; 
+            transform: translateY(-2px); 
+        }
+
+        .copy-button:active { 
+            transform: translateY(0); 
+        }
+
+        #feedbackMessage { 
+            margin-top: 15px; 
+            text-align: center; 
+            font-weight: 600; 
+            color: var(--accent-green); 
+            opacity: 0; 
+            transition: opacity 0.5s; 
+        }
+        
+        /* 🟢 GIF no Canto Inferior Esquerdo */
         .fun-animation {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 20px; 
+            width: 80px; 
+            height: 80px;
+            /* 🟢 URL DO NOVO GIF */
+            background-image: url('https://media.tenor.com/KifRMfLKMdgAAAAi/joe-typing-joe-surprised-typing.gif'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none; /* Não interfere na interação do mouse */
             z-index: 100;
         }
-        
-        #gifAnimation {
-            width: 150px; /* Tamanho do GIF */
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            background: transparent; 
+
+        /* 6. Responsividade */
+        @media (max-width: 600px) {
+            .select-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-logo {
+                width: 40px;
+            }
+            .fun-animation {
+                 /* Esconde ou move o GIF em telas pequenas para não atrapalhar */
+                display: none; 
+            }
         }
 
     </style>
@@ -110,29 +232,29 @@
 
     <div class="container">
         <header>
-            <h1>
-                <i class="fas fa-hand-holding-box liberty-icon"></i>
-                SIGS - Seletor de Macros de Chamado
-            </h1>
-            <p class="subtitle">Sistema Integrado de Gerenciamento de Segurança</p>
+            <div class="logo-section">
+                <img src="https://i.imgur.com/sffq801.png" alt="Logo Havan Labs" class="header-logo">
+                <h1>Seletor de Macros de Chamado</h1>
+            </div>
+            <p class="subtitle">TI Geral e SIGS - Agilize seu atendimento</p>
         </header>
 
-        <div class="select-container">
-            <label for="macroSelect">Deseja macro referente a qual assunto?</label>
-            <select id="macroSelect" onchange="displayMacro()">
-                <option value="">-- Selecione uma opção --</option>
-                <option value="1">1. CFTV - Câmera - Falha</option>
-                <option value="2">2. Alarme de Intrusão - Sensor/Pânico - Falha</option>
-                <option value="3">3. Alarme de Intrusão - Sirene/Corneta - Falha</option>
-                <option value="4">4. Controle de Acesso - Leitor - Falha</option>
-                <option value="5">5. Security Desk - Erro</option>
-                <option value="6">6. Security Desk - Instalação</option>
-                <option value="7">7. Nuuo - Erro</option>
-                <option value="8">8. Alarme de Intrusão - Central - Falha</option>
-                <option value="9">9. OneDrive - Erro</option>
-                <option value="10">10. OneDrive - Espaço Insuficiente</option>
-                <option value="11">11. OneDrive - Dúvida de Usuário</option>
-            </select>
+        <div class="select-group">
+            <div class="select-container">
+                <label for="categorySelect">Selecione a Categoria Principal</label>
+                <select id="categorySelect" class="custom-select" onchange="updateMacroOptions()">
+                    <option value="">-- Selecione a Área --</option>
+                    <option value="SIGS">SIGS (Segurança)</option>
+                    <option value="HELP_DESK">Help Desk (TI Geral)</option>
+                </select>
+            </div>
+            
+            <div class="select-container">
+                <label for="macroSelect">Selecione o Assunto</label>
+                <select id="macroSelect" class="custom-select" onchange="displayMacro()">
+                    <option value="">-- Selecione uma Categoria Primeiro --</option>
+                </select>
+            </div>
         </div>
 
         <div class="macro-output" id="macroOutput">
@@ -144,31 +266,288 @@
         </div>
 
     </div>
-
-    <div class="fun-animation">
-        <img id="gifAnimation" src="https://media.tenor.com/uPvxcP-OUx0AAAAj/dog-no-background.gif" alt="Cachorro Animado" />
-    </div>
+    
+    <div class="fun-animation"></div>
 
     <script>
-        // Objeto contendo todas as macros (Mantido)
-        const macros = {
-            '1': `Assunto: Havan Labs - Help Desk - SIGS-CFTV - Câmera - Falha\n\n[SIGS] Verificar Câmera\n\nNome da câmera: [Campo de Texto]\nSetor: [Campo de Texto]\n\nProblema:\n[ ] Alterar Layout da Recepção\n[ ] Câmera off-line (desde: //)\n[ ] Danificada fisicamente\n[ ] Outros (especificar): [Campo de Texto]`,
-            '2': `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Sensor/Pânico - Falha\n\n[SIGS] Verificar Sensor/Pânico\n\nLocal: [Campo de Texto]\n[ ] Sensor\n[ ] Botão pânico fixo/móvel\n\nNúmero e nome das zonas: [Campo de Texto]\n\nProblema:\n[ ] Não constou no relatório após teste de alarme (data do teste: //)\n[ ] Disparos falsos após ativação da loja (data: //)\n[ ] Danificado\n[ ] Outros (especificar): [Campo de Texto]`,
-            '3': `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Sirene/Corneta - Falha\n\n[SIGS] Verificar Sirene/Corneta\n\nEquipamento:\n[ ] Central de alarme\n[ ] Central individual de porta de emergência\n\nProblema: [Campo de Texto]`,
-            '4': `Assunto: Havan Labs - Help Desk - SIGS - Controle de Acesso - Leitor - Falha\n\n[SIGS] Controle de Acesso\n\nDe qual setor:\n[ ] Alarme (teclado de ativação)\n[ ] Refeitório\n[ ] Par\n\nProblema:\n[ ] Erro ao cadastrar colaborador\n[ ] Danificado\n[ ] Não realiza leitura da biometria (informar erro): [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`,
-            '5': `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - [Local] - Erro\n\n[SIGS] Verificar Security Desk\n\nIP/Host: [Campo de Texto]\nUsuário: [Campo de Texto]\n\nProblema:\n[ ] Não está conectando\n[ ] Não inicia automaticamente\n[ ] Falha ao visualizar imagens (especificar): [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`,
-            '6': `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - [Local] - Instalar\n\n[SIGS] Instalação do Security Desk\n\nIP/Host: [Campo de Texto]\nMotivo da instalação: [Campo de Texto]`,
-            '7': `Assunto: Havan Labs - Help Desk - SIGS - Sistema Nuuo - Erro\n\n[SIGS] Verificar Nuuo\n\nIP/Host: [Campo de Texto]\nUsuário: [Campo de Texto]\n\nProblema:\n[ ] Não está conectando\n[ ] Falha ao visualizar imagens (especificar): [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`,
-            '8': `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Central - Falha\n\n[SIGS] Verificar Central de Alarme\n\nCentral de qual equipamento:\n[ ] Central de alarme\n[ ] Central individual de porta de emergência\n\nQual é a porta de emergência: [Campo de Texto]\n\nProblema:\n[ ] Bateria fraca\n[ ] Placa da central com problema\n[ ] Teclado com problema (especificar): [Campo de Texto]\n[ ] Controle da porta de emergência\n[ ] Outros (especificar): [Campo de Texto]`,
-            '9': `Assunto: Havan Labs - Help Desk - SIGS- OneDrive - Erro\n\n[SIGS] OneDrive com erro\n\nE-mail: [Campo de Texto]\nIP/Host: [Campo de Texto]\n\nProblema:\n[ ] Erro na sincronização\n[ ] Erro ao enviar arquivos para Jurídico, Auditoria ou Polícia\n[ ] Outros (descrever): [Campo de Texto]`,
-            '10': `Assunto: Havan Labs - Help Desk - SIGS- OneDrive - Cheio/Sem Espaço\n\n[SIGS] OneDrive com espaço insuficiente\n\nE-mail: [Campo de Texto]\nIP/Host: [Campo de Texto]`,
-            '11': `Assunto: Havan Labs - Help Desk - SIGS - OneDrive - Dúvida\n\n[SIGS] Dúvida sobre OneDrive\n\nE-mail: [Campo de Texto]\nIP/Host: [Campo de Texto]\nDescreva a dúvida: [Campo de Texto]`
+        // Objeto contendo todas as macros (MANTIDO INALTERADO)
+        const allMacros = {
+            'SIGS_CAMERA_FALHA': {
+                name: 'CFTV - Câmera - Falha',
+                text: `Assunto: Havan Labs - Help Desk - SIGS-CFTV - Câmera - Falha\n\n[SIGS] Câmera. FL. \n\nNome da câmera: [Campo de Texto]\nSetor:\n[ ] AREA DE VENDAS\n[ ] CAIXAS\n[ ] DEPOSITO\\DOCA\\PAR\n[ ] ENTRADA\\SAIDA\\RP\n[ ] EXTERNAS\n[ ] OUTRAS: [Campo de Texto]\n\nProblema:\n[ ] Câmera off-line. Informações relevantes: [Campo de Texto]\n[ ] Outros (Descrever): [Campo de Texto]`
+            },
+            'SIGS_ALARME_SENSOR_PANICO': {
+                name: 'Alarme - Sensor/Pânico - Falha',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Sensor/Pânico - Falha\n\n[SIGS] Sensor. FL. \n\nQual é a solicitação?\n[ ] Nova Requisição\nMotivo da requisição:\n\n[ ] Manutenção\n\nOnde é o problema?\n[ ] Sensor\n[ ] Botão pânico\n\nQual o problema?\n[ ] Não constando no relatório de alarme após o teste\n[ ] Disparos falsos após ativação da loja. Data: //\n[ ] Danificado \n[ ] Outros. Especificar: [Campo de Texto]\n\nNúmero e nome das zonas: [Campo de Texto]\nBotão pânico fixo: [ ]Apoio, [ ]Birô, [ ]Par, [ ]Tesouraria. Número: [Campo de Texto]\nPânico controle remoto. Número do controle: [Campo de Texto]`
+            },
+            'SIGS_ALARME_CENTRAL_FALHA': {
+                name: 'Alarme - Central - Falha',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Central - Falha\n\n[SIGS] Central de Alarme. FL. \n\nModelo:\n[ ] Intelbras 4010 smart\n[ ] Bosch B6512G\n[ ] Bosch B9512G\n\nProblemas:\n[ ] Bateria\n[ ] Danificado\n[ ] Placa da central\n[ ] Sirene com problema\n[ ] Outros: [Campo de Texto]`
+            },
+            'SIGS_CONTROLE_ACESSO_FALHA': {
+                name: 'Controle de Acesso - Leitor/Biometria',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Controle de Acesso - Leitor - Falha\n\n[SIGS] Controle de Acesso. FL.\n\nDe qual setor:\n[ ] Alarme (Teclado de ativação)\n[ ] Refeitório\n[ ] Par\n\nQual o problema?\n[ ] Danificado\n[ ] Não realiza a leitura da biometria\n[ ] Outros (especificar): [Campo de Texto]\n\n*Anexar imagem`
+            },
+            'SIGS_ALARME_CENTRAL_INDIVIDUAL_FALHA': {
+                name: 'Alarme - Central Individual - Falha',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Alarme de Intrusão - Central Individual - Falha\n\n[SIGS] Central de Alarme Individual. FL. \nProblema na central individual:\n[ ] Bateria fraca\n[ ] Placa da central individual com problema\n[ ] Sirene com problema\n[ ] Controle da porta de emergência. Qual é a porta de emergência? [Campo de Texto]\n[ ] Outros (especificar): [Campo de Texto]`
+            },
+            'SIGS_SECURITY_DESK_ERRO_RP_TELA': {
+                name: 'Security Desk - Erro (RP/TELA)',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - Erro\n\n[SIGS] Verificar o programa Security Center. FL.\n\nPC: RP | IP: [Campo de Texto]\n[ ] Não está conectando.\n[ ] Não inicia automaticamente o Security Desk.\nLayout RP:\n[ ] Câmeras com falhas nas imagens.\n[ ] Outros (Especificar): [Campo de Texto]\n\n--- PC: TELA ---\nPC: TELA | IP: [Campo de Texto]\n[ ] Não está conectando. \n[ ] Não inicia automaticamente o Security Desk.\nLayout tela:\n[ ] Câmeras com falhas nas imagens.\n[ ] Outros (Especificar): [Campo de Texto]`
+            },
+            'SIGS_SECURITY_DESK_ERRO_TESOURARIA': {
+                name: 'Security Desk - Erro (TESOURARIA)',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - Erro\n\n[SIGS] Verificar o programa Security Center. FL.\n\nPC: TESOURARIA | IP: [Campo de Texto]\nUsuário: [ ]usuario [ ]havan\n[ ] Erro. Descrição do problema: [Campo de Texto]\n[ ] Nova solicitação (Descrever): [Campo de Texto]\n[ ] Outros (Especificar): [Campo de Texto]\n\n--- Alteração de Senha ---\n\nAlterar senha do Security Desk na Tesouraria\nUsuário: [ ]usuario [ ]havan\nMotivo: [Campo de Texto]`
+            },
+            'SIGS_SECURITY_DESK_LAYOUT': {
+                name: 'Security Desk - Alteração de Layout',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Security Desk - Alteração de Layout\n\n[SIGS] Verificar o programa Security Center. FL.\n\nLayout RP:\n[ ] Incluir a câmera ( ) no RP1[], RP2[]\n[ ] Substituir a câmera ( ) pela câmera ( )\n\nLayout tela:\n[ ] Câmera ( ) não consta no layout do: Tela01[] Tela02[]\n[ ] Substituir a câmera ( ) pela câmera ( )`
+            },
+            'SIGS_NUUO_ERRO': {
+                name: 'Nuuo - Erro (RP/TESOURARIA)',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Sistema Nuuo - Erro\n\n[SIGS] Nuuo F. \n\nPC: RP | IP: [Campo de Texto]\n[ ] Não inicia automaticamente o Nuuo.\n[ ] Não está ativado o autologon do usuário CFTV do Windows.\nLayout Rp:\n[ ] Câmera ( ) não consta no layout.\n[ ] Substituir a câmera ( ) pela câmera ( )\n[ ] Câmeras com falhas nas imagens.\n[ ] Outros (Especificar): [Campo de Texto]\n\n--- PC: Tesouraria ---\nPC: Tesouraria | IP: [Campo de Texto]\n[ ] Erro. Descrição do problema: [Campo de Texto]\n[ ] Nova requisição. Descrever: [Campo de Texto]\n[ ] Outros. Especificar: [Campo de Texto]\nUsuário: [ ]usuario [ ]havan`
+            },
+            'SIGS_ALARME_SENHA': {
+                name: 'Alarme - Senha (Ativação/Desativação)',
+                text: `Assunto: Havan Labs - Help Desk - SIGS - Senha Alarme - [Incluir/Excluir]\n\n[SIGS] Senha Alarme. FL.\n\nQual a solicitação?\n[ ] Incluir senha de ativação e desativação da loja.\n[ ] Excluir senha de ativação e desativação da loja.\n\nMotivo da Solicitação:\nCódigo: [Campo de Texto]\nNome: [Campo de Texto]\nPerfil: [Campo de Texto]`
+            },
+
+            // ====================================================================================================
+            // MACROS HELP DESK (TI Geral)
+            // ====================================================================================================
+            'HD_IMPRESSORA_CAIXA': {
+                name: 'Impressora de Caixa (ECF/NFCe) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - ECF/NFCe - Falha\n\n[IMPRESSORA] Verificar impressora de caixa [PDV ]. FL.\n\nMarca/Modelo:\n[ ] Elgin I9\n[ ] Epson TM-T900F\n[ ] Bematech - Modelo: [Campo de Texto]\n\nNúmero de Série: [Campo de Texto]\n\nO que aconteceu?\n[ ] Não liga\n[ ] Travou durante a venda\n[ ] Encravamento de papel\n[ ] Impressão está saindo com falha/borrada\n[ ] ECF Bloqueada - Motivo do bloqueio: [Campo de Texto]\n[ ] ECF com data/hora divergente\n[ ] Não é reconhecido pelo computador\n[ ] Outros, explique: [Campo de Texto]`
+            },
+            'HD_IMPRESSORA_SETOR': {
+                name: 'Impressora Setor (Ricoh/Samsung/HP) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Setor - Falha\n\nVerificar impressora [Setor]. FL.\n\nMarca: Ricoh [ ] Sansung [ ] HP [ ]\nModelo: [Campo de Texto]\nNº DE SÉRIE DO EQUIPAMENTO: [Campo de Texto] (INFORMAÇÃO OBRIGATÓRIA)\n\nProblemas:\n[ ] Atolamento de papel, em qual parte? [Campo de Texto]\n[ ] Tampa quebrada, qual delas? [Campo de Texto]\n[ ] Apresentando o seguinte erro: [Campo de Texto] (Ex: SC542)\n[ ] Apresentando ruídos quando envia uma impressão, foi trocado o toner?`
+            },
+            'HD_IMPRESSORA_ZEBRA': {
+                name: 'Impressora Zebra (Depósito) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Zebra Depósito - Falha\n\n[SOFTWARE] Verificar impressora [Zebra Depósito]. FL. \n\nColaborador(a) entrou em contato informando o seguinte problema:\n[ ] Impressora não está calibrando - *ANEXAR FOTO DO LASER*\n[ ] Impressão saindo fraca/borrada - *ANEXAR FOTO DOS CILINDROS E DA CABEÇA DE IMPRESSÃO*\n[ ] Impressora sem rede - MAC: [Campo de Texto] (anexar foto)\n[ ] Impressora nova precisa de reserva - MAC: [Campo de Texto] (anexar foto)\n[ ] Fonte de cabeça para baixo/desconfigurada - *ANEXAR FOTO*\n[ ] Outros(Explique): [Campo de Texto] \n\nAnexar obrigatoriamente foto da etiqueta que está sendo usada. Inserir anexo do problema.`
+            },
+            'HD_TROCA_ANTECIPADA_TONER': {
+                name: 'Impressora - Troca Antecipada de Toner (Aviso)',
+                text: `Assunto: Havan Labs - Help Desk - IMPRESSORA - Troca Antecipada de Toner\n\nVERIFICAR TROCA ANTECIDAPADA []. FL.\n\nIdentificamos uma troca incorreta do cartucho de toner em sua impressora.\n\nEntão, para garantir o abastecimento proativo no mês subsequente, orientamos que retorne esse cartucho para o seu equipamento utilize até o seu término.\n\nCom esta ação você evita desperdício, custos de excedente de toner e colabora com o meio ambiente.`
+            },
+            'HD_CAIXA_PINPAD': {
+                name: 'CAIXA - Pinpad (PPC-930) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - CAIXA - Pinpad - Falha\n\nVerificar pinpad do PDV [PDV]. FL.\n\nMarca: REDE | Modelo: PPC-930 | Número de série: [Campo de Texto]\n\nDescrição: O que aconteceu?\n[ ] Não liga\n[ ] Não lê cartão tarja\n[ ] Travou durante a venda\n[ ] Não lê cartão com chip\n[ ] Não lê cartão (nenhum tipo)\n[ ] Não é reconhecido pelo computador\n[ ] Outro, explique: [Campo de Texto]`
+            },
+            'HD_CAIXA_LEITOR': {
+                name: 'CAIXA - Leitor de Código de Barras - Falha',
+                text: `Assunto: Havan Labs - Help Desk - CAIXA - Leitor - Falha\n\nVerificar Leitor do PDV [PDV]. FL.\n\nProblema:\n[ ] O leitor dá retorno sonoro, mas não está lendo os código de barras\n[ ] O leitor sem retorno sonoro e sem ler os código de barras\n[ ] O leitor não está ligando\n[ ] Outro, descreva: [Campo de Texto]\n\nMarca: [Campo de Texto] | Modelo: [Campo de Texto] | S/N: [Campo de Texto] | Garantia: [Campo de Texto] | Adaptador: [ ]sim [ ] não`
+            },
+            'HD_CAIXA_NFCESAT_INTEGRACAO': {
+                name: 'CAIXA - Erro de Integração NFC-e / SAT',
+                text: `Assunto: Havan Labs - Help Desk - CAIXA - Integração NFC-e/SAT - Falha\n\nVerificar erro de Integração NFC-e / SAT. FL.\n\nLoja entrou em contato, informando que ao iniciar o sistema do PDV reporta a mensagem de erro:\n"Atenção! Integração NFCe/SAT indisponivel! Contate o suporte através do ramal 25105025"`
+            },
+            'HD_CAIXA_SAT_FALHA': {
+                name: 'CAIXA - SAT - Falha',
+                text: `Assunto: Havan Labs - Help Desk - CAIXA - SAT - Falha\n\nSAT apresentou erro no PDV [PDV]. FL. \n\nMarca/Modelo:\n[ ] Elgin Linker II\n[ ] Elgin Smart SAT\n\nNúmero de Série: [Campo de Texto] | MAC: [Campo de Texto]\n\nDescrição: O que aconteceu?\n[ ] Não liga\n[ ] Sem rede\n[ ] Bloqueado\n[ ] Horário divergindo mais de uma hora\n[ ] Não é reconhecido pelo computador\n[ ] Erro ao realizar consulta do SAT. Descreva: [Campo de Texto]\n[ ] Outro, explique: [Campo de Texto]`
+            },
+            'HD_CAIXA_POS': {
+                name: 'CAIXA - Maquineta de POS (REDE)',
+                text: `Assunto: Havan Labs - Help Desk - CAIXA - Maquineta POS - Falha\n\nVerificar maquineta de POS. FL. \n\nMarca: REDE | N/S(Rede): [Campo de Texto] | Operadora: [Campo de Texto]\n\nDescrever o problema: [Campo de Texto]`
+            },
+            'HD_EMAIL_PROBLEMA': {
+                name: 'E-mail - Problemas (Acesso, Recebimento, Teams, Auth)',
+                text: `Assunto: Havan Labs - Help Desk - E-mail - Problema\n\nVerificar problema de E-mail. FL.\n\nFoi verificado o seguinte problema abaixo:\n[ ] Não realiza acesso a caixa de e-mail. Qual modo de entrada? Aplicativo ou WEB? (Anexar Print)\n[ ] Não está recebendo e-mail de algum remetente? Qual? (Informar) (Anexar Print) (Informar Data)\n[ ] Erro de autentificação no Microsoft Autenticador (Anexar Print) (Informar E-mail)\n[ ] Erro na aplicação Microsoft Teams (Anexar Print)\n[ ] Não possui assinatura de e-mail (e-mail espelho)\n[ ] Conceder acesso a caixa de e-mail compartilhada. Tipo de permissão? [Campo de Texto] E-mail a ser liberado? [Campo de Texto]`
+            },
+            'HD_EMAIL_NOVO_COLABORADOR': {
+                name: 'E-mail - Criação de Usuário/Liberação',
+                text: `Assunto: Havan Labs - Help Desk - E-mail - Novo Colaborador/Liberação\n\nVerificar solicitação de usuário de acesso para o novo colaborador [Colaborador]. FL.\n\nGerente entrou em contato solicitando criação de usuário e senha de acesso para o novo colaborador.\n\nUsuário: [Campo de Texto] (print do simulação de envio de e-mail)\nUsuário Espelho: [Campo de Texto]\n\nLiberações:\n[ ] E-mail - Outlook 365\n[ ] Teams Microsoft`
+            },
+            'HD_EMAIL_SITEF_WEB': {
+                name: 'E-mail - Criação para SITEF WEB',
+                text: `Assunto: Havan Labs - Help Desk - E-mail - Criação para SITEF WEB\n\nCriação de e-mail para uso no SITEF WEB. FL.\n\nNecessário criação de e-mail para uso na plataforma SITEF WEB e redirecionamento dos e-mails recebidos para a caixa: sitefloja@havan.com.br \n\nFilial ** - [Campo de Texto]\nColaborador: ***** [Campo de Texto]\nE-mail: sitef***@havan.com.br [Campo de Texto]\n\nNecessário que o redirecionamento seja feito para: sitefloja@havan.com.br`
+            },
+            'HD_PC_ADM_FALHA': {
+                name: 'Computador ADM/Setor - Falha',
+                text: `Assunto: Havan Labs - Help Desk - Computador ADM - Falha\n\nVerificar Computador do ADM [Setor]\n\nQual o problema? Descrever: [Campo de Texto]\n\nMarca: [Campo de Texto]\nModelo: [Campo de Texto]\nHostname/IP: [Campo de Texto]\nDisco de Armazenamento: HDD [ ] SSD [ ] Tamanho [GB]\nCód/Nome usuário: [Campo de Texto]\nIdentificação da mesa: [Campo de Texto]\n\nConexão do Monitor \n( ) VGA com adaptador VGA/HDMI\n( ) VGA sem adaptador\n( ) Display Port\n( ) HDMI`
+            },
+            'HD_MONITOR_FALHA': {
+                name: 'Monitor - Falha',
+                text: `Assunto: Havan Labs - Help Desk - HARDWARE - Monitor - Falha\n\nVerificar Monitor [TERMINAL] - Fl.\n\nQual o problema? Descrever: [Campo de Texto]\n\nMarca: [Campo de Texto] | Modelo: [Campo de Texto]\n\nMonitor - ( ) VGA ( ) Display Port ( ) HDMI\nPossui adaptador? ( )Sim ( ) Não`
+            },
+            'HD_WEBCAM_FALHA': {
+                name: 'Webcam/Câmera de Biometria - Falha',
+                text: `Assunto: Havan Labs - Help Desk - HARDWARE - Webcam - Falha\n\nVerificar Webcam [TERMINAL] - Fl.\n\nProblema:\n[ ] Está sem a lente\n[ ] Não passa imagem\n[ ] Está quebrada (anexar imagem)\n[ ] Não é reconhecida pelo computador\n[ ] Outro, descreva: [Campo de Texto]\n\nMarca/Modelo:\n[ ] Câmera de Biometria Facial Acesso (Crediário)\n[ ] Lifecam HD 3000 (EducaHavan) \n[ ] HD Pro Webcam C920 (EducaHavan)\nInformar N/S: [Campo de Texto]`
+            },
+            'HD_REDE_FALHA': {
+                name: 'Rede/Conexão - Falha',
+                text: `Assunto: Havan Labs - Help Desk - REDE - Terminal sem Conexão\n\nO terminal do [Terminal] não está conectado na rede. FL.\n\nIP/Host: [Campo de Texto]\nMAC: [Campo de Texto]\nTipo de conexão: [ ]Ethernet [ ]Wireless [ ]Bridge`
+            },
+            'HD_REMOTA_TRAVAMENTO': {
+                name: 'Área Remota - Travamento',
+                text: `Assunto: Havan Labs - Help Desk - Área Remota - Travamento\n\nVerificar travamento na área remota. FL.\n\nEspecifique o problema: [Campo de Texto]\n\nFoi verificado que o servidor Vwts (informar aqui o Nº) está apresentando vários travamentos ao decorrer do dia.\nIP do terminal: [Campo de Texto]\nNLB: [Campo de Texto]`
+            },
+            'HD_ACESSOS_SISTEMA_GERENCIAL': {
+                name: 'Acessos - Sistema Remoto Gerencial',
+                text: `Assunto: Havan Labs - Help Desk - ACESSOS - Sistema Remoto Gerencial\n\nLiberação de acesso ao sistema remoto Gerencial FL\n\nO gerente da filial irá entrar em período de férias, portanto será necessário fornecer permissionamento para o colaborador abaixo.\nColaborador Solicitante: [Campo de Texto] \nNLB: (172.16.0.71)`
+            },
+            'HD_ACESSOS_BLOQUEIO_SITE': {
+                name: 'Acessos - Bloqueio/Liberação de Site',
+                text: `Assunto: Havan Labs - Help Desk - ACESSOS - Bloqueio/Liberação de Site\n\nVerificar Bloqueio de acesso ao site. FL. \n\nLiberação de Acesso a Internet.\nUsuário: [Campo de Texto]\nIP do PC: [Campo de Texto] \nFilial: [Campo de Texto]\nURL: [Campo de Texto]\nMotivo: [Campo de Texto]\n\n*Anexar print do bloqueio.`
+            },
+            'HD_RF_SOFTWARE_FALHA': {
+                name: 'RF (Software) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - RF - Software - Falha\n\nSOFTWARE: Verificar RF [SETOR]. FL. \n\nMarca: [Honeywell - Datalogic]\nSetor:\n[ ] Depósito .57\n[ ] Visual .58\n[ ] Lista .59\n\nProblema:\n[ ] RF está sem rede - MAC: [Campo de Texto]\n[ ] RF não acessa conexão remota - NLB: [Campo de Texto]\n[ ] RF não está lendo produtos\n[ ] RF pinga mas não acessa (Anexar print do ping)\n[ ] RF está com IP fora do padrão - MAC: [Campo de Texto]\n[ ] Outro, explique: [Campo de Texto]`
+            },
+            'HD_RF_HARDWARE_FALHA': {
+                name: 'RF (Hardware) - Carregador/Dano',
+                text: `Assunto: Havan Labs - Help Desk - RF - Hardware - Carregador\n\nHARDWARE: Verificar carregador de RF [SETOR] - Fl.\n\nMarca: [Honeywell - Datalogic]\n\nProblema:\n[ ] Carregador com fios expostos\n[ ] Não carrega\n[ ] Pino do carregador quebrado\n[ ] Outros\n\n*Necessário ter foto do equipamento mesmo não sendo falha aparente.`
+            },
+            'HD_MOBICONTROL_SOFTWARE': {
+                name: 'Mobicontrol (Software) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - MOBICONTROL - Software - Falha\n\nSOFTWARE: Verificar celular [NOME NO MOBICONTROL]. FL.\n\nSetor:\n[ ] Pacote - ()01 ()02 ()03 () Todos\n[ ] Cadastro ()01 ()02 () Todos\n[ ] RFID\n[ ] Vendas - Vendedor: [Campo de Texto] - () Todos\n[ ] Havan.com - ()01 ()02 ()03\n\nProblema:\n[ ] Sem Rede\n[ ] Celular estava travado\n[ ] Lentidão no aplicativo: [NOME DO APP]\n[ ] Celular foi resetado ao modo de fábrica\n[ ] Aplicativo [NOME DO APP] está como Pacote não encontrado/não abre\n[ ] Outro, descreva: [Campo de Texto] \n\nIP: [Campo de Texto] | IMEI: [Campo de Texto] | MAC: [Campo de Texto]`
+            },
+            'HD_MOBICONTROL_HARDWARE': {
+                name: 'Mobicontrol (Hardware) - Falha',
+                text: `Assunto: Havan Labs - Help Desk - MOBICONTROL - Hardware - Falha\n\nHARDWARE: Verificar celular [NOME NO MOBICONTROL]. FL.\n\nSetor:\n[ ] Pacote - () 01 () 02 () 03 - [] Todos\n[ ] Cadastro - () 01 () 02 - [] Todos\n[ ] Vendas - Vendedor: [Campo de Texto] - [] Todos\n[ ] RFID\n\nProblema: \n[ ] Não liga\n[ ] Celular estava travado\n[ ] Touchscreen não funciona\n[ ] Tela está com avaria; (anexar imagem)\n[ ] Outro, descreva: [Campo de Texto]\n\nIP: [Campo de Texto] | IMEI: [Campo de Texto] | MAC: [Campo de Texto]`
+            },
+            'HD_INFINITE_VENDA': {
+                name: 'Infinite - Erro ao Realizar Venda',
+                text: `Assunto: Havan Labs - Help Desk - INFINITE - Erro ao Vender\n\nVerificar erro ao realizar venda no Infinite. FL.\n\nColaborador (a) entrou em contato informando que está com problemas para realizar a venda via Infinite.\n\nMensagem de erro: [Campo de Texto]\nCliente: [Campo de Texto] | Produto: [Campo de Texto]\nModalidade de venda: () Despacho loja () Retira fácil () Venda Futura () Venda Normal ()Venda Ordem\nForma de pagamento: [Campo de Texto]\nCep: [Campo de Texto] Endereço: [Campo de Texto]\nIP do mobile: [Campo de Texto]\n\n**Necessário anexar vídeo do procedimento.`
+            },
+            'HD_NOTAS_FISCAIS': {
+                name: 'Notas Fiscais - Erro de Emissão/Transmissão',
+                text: `Assunto: Havan Labs - Help Desk - NOTAS FISCAIS - Erro de Emissão\n\nERRO AO EMITIR NOTA FISCAL. FL.\n\nO colaborador (a), entrou em contato informando que não estava sendo possível realizar a emissão ou transmissão de nota fiscal.\n\nSelecione o que melhor corresponder a solicitação:\n() - Consumo Indevido. [Consulte NT 2018.002 v1.00]\n() - Processamento pendente\n() - Não respondendo\n() - Tempo limite excedido\n() - Sefaz estado [] Indisponível\n() - IE não foi informado\n() - Falha no Schema XML\n() - Rejeição, Qual? Especifique: [Campo de Texto]\n\nCliente: Nome | Operação: () - Saída ou () - Entrada | Valor: ####\nData operação: ##/##/#### | Documento ( Nº Nota ): ########## | NOP: ######\nSituação nota: () - Cancelada ou () - Autorizada\n\n** Anexar imagem do erro**`
+            },
+            'HD_RADIO_FALHA': {
+                name: 'Rádio/Microfone - Falha',
+                text: `Assunto: Havan Labs - Help Desk - RÁDIO - Falha\n\nRÁDIO. FL. \nO que aconteceu?\n[ ] Anuncio de placas não está funcionando\n[ ] Rádio interna não toca em determinado setor - Setor: [Campo de Texto]\n[ ] Programação: [ ]Parou, [ ]Não Iniciou, [ ]Não Terminou\n[ ] Volume do(a) [ ]Rádio, [ ]Anúncio de placas, [ ]Microfone, estava: [ ]Alto; [ ]Baixo; [ ]Mudo\n[ ] Outro, explique: [Campo de Texto]\n\n--- Microfone do Cadastro ---\n\nVerificar microfone do cadastro. FL.  \nQual o problema?\n[ ] Microfone não liga\n[ ] Apresenta ruído durante o uso\n[ ] Apresenta dano físico (anexar imagem)\n[ ] Microfone não interrompe a rádio ao usar e o som do microfone: [ ]É audível; [ ]Não sai\n[ ] Outro, Explique: [Campo de Texto]`
+            },
+            'HD_TELEFONIA_RAMAL': {
+                name: 'Telefonia/Ramal - Falha',
+                text: `Assunto: Havan Labs - Help Desk - TELEFONIA - Falha\n\nVERIFICAR TELEFONIA. FL. \n\nProblema de: [ ] LIGAÇÃO INTERNA [ ] LIGAÇÃO EXTERNA\nAo: [ ] RECEBER [ ] FAZER\nCom algum ramal específico?\n[ ] Não, são todos\n[ ] Sim, é com apenas o: [Campo de Texto]\nDetalhes: [Campo de Texto]\n\n--- Ramal Físico ---\n\nVerificar telefone [Setor - número] - Fl.\n[ ] Ramal não liga\n[ ] Patch-Cords invertidos\n[ ] LEDS piscando/Ramal mudo\n[ ] Cabo espiral com fios expostos/mal contato\n[ ] Outros, descreva: [Campo de Texto]\nMarca: [ ] Yealink; [ ] Intelbras; [ ] Khomp; Modelo: [Campo de Texto]`
+            },
+            'HD_RELOGIO_PONTO': {
+                name: 'Relógio Ponto - Falha',
+                text: `Assunto: Havan Labs - Help Desk - RELÓGIO - Falha\n\nVerificar Relógio Ponto - Fl.\n\nMarca/Modelo:\n[ ] Dimep-printpoint II (preto-modelo velho)\n[ ] Dimep-printpoint III (cinza modelo novo)\n[ ] Dimep Smart Print (preto, parte de baixo arredondada)\n\nNúmero de série: [Campo de Texto] \n\nProblema:\n[ ] Não liga\n[ ] Registros não estão sendo importados\n[ ] Equipamento bloqueado (Rap Manutenção)\n[ ] Não corta papel/Atolamento de papel\n[ ] Impressão apagada\n[ ] Dano físico.\n[ ] Outro, descreva: [Campo de Texto]\n\n*Anexar mídia do problema.`
+            },
+            'HD_TV_INTERNA': {
+                name: 'TV Interna - Falha',
+                text: `Assunto: Havan Labs - Help Desk - TV - Falha\n\nVerificar problema na TV interna [Setor] - Fl.\n\nTipo de conexão do painel:\n[ ] HDMI\n[ ] Coaxial\n\nO que aconteceu:\n[ ] Programação não iniciou\n[ ] Programação travada (anexar Vídeo)\n[ ] TVs sem sinal (Especificar os testes)\n[ ] Outro, explique: [Campo de Texto]`
+            },
+            'HD_RELATORIO_FALHA': {
+                name: 'Relatório - Falha ao Gerar',
+                text: `Assunto: Havan Labs - Help Desk - RELATÓRIO - Falha ao Gerar\n\nVerificar falha ao gerar relatório [Setor] - Fl.\n\nColaborador(a) entrou em contato informando que o relatório [RELATÓRIO] está apresentando uma falha ao ser gerado.\n\nProblema:\n[ ] Gera o relatório em branco;\n[ ] Apresenta uma mensagem de erro; (print em anexo.)\n[ ] Encontra-se desatualizado;\n[ ] Busca informações incoerentes com o filtro;\n[ ] Outros; (explique): [Campo de Texto]\n\nCaminho: [Campo de Texto] | Filtros: [Campo de Texto] | Data: [Campo de Texto]`
+            },
+            'HD_APPHAVAN_ERRO': {
+                name: 'SuperApp Havan - Erro',
+                text: `Assunto: Havan Labs - Help Desk - APP HAVAN - Erro\n\nVerificar erro no SuperApp Havan. FL \n\nPara melhor análise, preencha as informações abaixo:\nNome do cliente: [Campo de Texto] | Cpf ou Código: [Campo de Texto]\nDescreva o erro: [Campo de Texto]\n\nO problema ocorre em qual momento?\n[ ] Login [ ] Recuperar a senha [ ] Biometria [ ] Acesso a faturas.\nSistema Operacional (Android ou iOS): [Campo de Texto]\nMarca (opcional): [Campo de Texto] | Modelo: [Campo de Texto] | Versão do Aplicativo: [Campo de Texto]`
+            },
+            'HD_CADASTRO_NOVO_PERFIL': {
+                name: 'Criação de Novo Perfil de Rede',
+                text: `Assunto: Havan Labs - Help Desk - CADASTRO - Criação de Novo Perfil de Rede\n\nCRIAR NOVO PERFIL DE REDE.\n\nNome completo: [Campo de Texto]\nCódigo: [Campo de Texto]\nData início: [Campo de Texto]\nReadmitido: () Sim () Não\nE-mail: () Sim () Não\nUsuário espelho para herdar as mesmas permissões: [Campo de Texto]\n(Remoto) E-mail pessoal para envio das informações de login: [Campo de Texto]`
+            },
+            'HD_OUTROS_TERMO_RESPONSABILIDADE': {
+                name: 'Outros - Solicitação de Termo de Responsabilidade',
+                text: `Assunto: Havan Labs - Help Desk - OUTROS - Termo de Responsabilidade\n\nSOLICITO TERMO DE RESPONSABILIDADE. FL. (Do jeito que o Ilson gosta)\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Setor: [Campo de Texto]\n\nEquipamento: [Campo de Texto]\nFabricante: [Campo de Texto]\nModelo: [Campo de Texto]\nNúmero de Série: [Campo de Texto]\nIMEI: [Campo de Texto]`
+            },
+             'HD_OUTROS_WHATSAPP_BUSINESS_LIDER': {
+                name: 'Outros - Cadastro WhatsApp Business (Líder)',
+                text: `Assunto: Havan Labs - Help Desk - OUTROS - Cadastrar WhatsApp Business (Líder)\n\nCADASTRAR WHATSAPP BUSINESS [LÍDER]. FL.\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Número: [Campo de Texto]\n[ ] Líder não possui número\n\nSituação:\n[ ] Aumento de quadro;\n[ ] Líder novo;\n\nAlgum líder foi recentemente dispensado?\n[ ] Não\n[ ] Sim. Código/Nome: [Campo de Texto]`
+            },
+            'HD_OUTROS_WHATSAPP_BUSINESS_VENDEDOR': {
+                name: 'Outros - Cadastro WhatsApp Business (Vendedor)',
+                text: `Assunto: Havan Labs - Help Desk - OUTROS - Cadastrar WhatsApp Business (Vendedor)\n\nCADASTRAR WHATSAPP BUSINESS [VENDEDOR]. FL.\n\nCódigo: [Campo de Texto] | Nome: [Campo de Texto] | Número: [Campo de Texto]\n[ ] Vendedor não possui número\n\nSituação:\n[ ] Aumento de quadro;\n[ ] Colaborador promovido;`
+            },
+            'HD_TEAMS_REUNIAO': {
+                name: 'Teams - Auxílio Reunião',
+                text: `Assunto: Havan Labs - Help Desk - SOFTWARE - Auxílio Reunião Teams\n\nAuxílio reunião via TEAMS terminal [Terminal]. FL.\n\nColaborador(a) entrou em contato solicitando auxílio para participar de uma reunião.\n( ) Microfone inativo\n( ) Webcam sem imagem\n( ) Link de reunião inválido\n( ) Outros: Explique - [Campo de Texto]`
+            }
         };
 
+        const categorySelect = document.getElementById('categorySelect');
         const macroSelect = document.getElementById('macroSelect');
         const macroOutput = document.getElementById('macroOutput');
         const macroText = document.getElementById('macroText');
         const feedbackMessage = document.getElementById('feedbackMessage');
+
+        // Estrutura das opções do menu suspenso (MANTIDO INALTERADO)
+        const macroOptions = {
+            'SIGS': [
+                { value: 'SIGS_CAMERA_FALHA', text: '1. CFTV - Câmera - Falha' },
+                { value: 'SIGS_ALARME_SENSOR_PANICO', text: '2. Alarme - Sensor/Pânico - Falha' },
+                { value: 'SIGS_ALARME_CENTRAL_FALHA', text: '3. Alarme - Central - Falha' },
+                { value: 'SIGS_ALARME_CENTRAL_INDIVIDUAL_FALHA', text: '4. Alarme - Central Individual - Falha' },
+                { value: 'SIGS_CONTROLE_ACESSO_FALHA', text: '5. Controle de Acesso - Leitor/Biometria' },
+                { value: 'SIGS_SECURITY_DESK_ERRO_RP_TELA', text: '6. Security Desk - Erro (RP/TELA)' },
+                { value: 'SIGS_SECURITY_DESK_ERRO_TESOURARIA', text: '7. Security Desk - Erro (TESOURARIA)' },
+                { value: 'SIGS_SECURITY_DESK_LAYOUT', text: '8. Security Desk - Alteração de Layout' },
+                { value: 'SIGS_NUUO_ERRO', text: '9. Nuuo - Erro (RP/TESOURARIA)' },
+                { value: 'SIGS_ALARME_SENHA', text: '10. Alarme - Senha (Ativação/Desativação)' }
+            ],
+            'HELP_DESK': [
+                { value: 'HD_IMPRESSORA_CAIXA', text: '1. Impressora de Caixa (ECF/NFCe) - Falha' },
+                { value: 'HD_IMPRESSORA_SETOR', text: '2. Impressora Setor (Ricoh/Samsung/HP) - Falha' },
+                { value: 'HD_IMPRESSORA_ZEBRA', text: '3. Impressora Zebra (Depósito) - Falha' },
+                { value: 'HD_TROCA_ANTECIPADA_TONER', text: '4. Impressora - Troca Antecipada de Toner (Aviso)' },
+                { value: 'HD_CAIXA_PINPAD', text: '5. CAIXA - Pinpad (PPC-930) - Falha' },
+                { value: 'HD_CAIXA_LEITOR', text: '6. CAIXA - Leitor de Código de Barras - Falha' },
+                { value: 'HD_CAIXA_NFCESAT_INTEGRACAO', text: '7. CAIXA - Erro de Integração NFC-e / SAT' },
+                { value: 'HD_CAIXA_SAT_FALHA', text: '8. CAIXA - SAT - Falha' },
+                { value: 'HD_CAIXA_POS', text: '9. CAIXA - Maquineta de POS (REDE)'},
+                { value: 'HD_NOTAS_FISCAIS', text: '10. Notas Fiscais - Erro de Emissão/Transmissão' },
+                { value: 'HD_EMAIL_PROBLEMA', text: '11. E-mail - Problemas (Acesso, Recebimento, Teams, Auth)' },
+                { value: 'HD_EMAIL_NOVO_COLABORADOR', text: '12. E-mail - Criação de Usuário/Liberação' },
+                { value: 'HD_EMAIL_SITEF_WEB', text: '13. E-mail - Criação para SITEF WEB' },
+                { value: 'HD_PC_ADM_FALHA', text: '14. Computador ADM/Setor - Falha' },
+                { value: 'HD_MONITOR_FALHA', text: '15. Monitor - Falha' },
+                { value: 'HD_WEBCAM_FALHA', text: '16. Webcam/Câmera de Biometria - Falha' },
+                { value: 'HD_REDE_FALHA', text: '17. Rede/Conexão - Falha' },
+                { value: 'HD_REMOTA_TRAVAMENTO', text: '18. Área Remota - Travamento' },
+                { value: 'HD_ACESSOS_SISTEMA_GERENCIAL', text: '19. Acessos - Sistema Remoto Gerencial' },
+                { value: 'HD_ACESSOS_BLOQUEIO_SITE', text: '20. Acessos - Bloqueio/Liberação de Site' },
+                { value: 'HD_RF_SOFTWARE_FALHA', text: '21. RF (Software) - Falha' },
+                { value: 'HD_RF_HARDWARE_FALHA', text: '22. RF (Hardware) - Carregador/Dano' },
+                { value: 'HD_MOBICONTROL_SOFTWARE', text: '23. Mobicontrol (Software) - Falha' },
+                { value: 'HD_MOBICONTROL_HARDWARE', text: '24. Mobicontrol (Hardware) - Falha' },
+                { value: 'HD_INFINITE_VENDA', text: '25. Infinite - Erro ao Realizar Venda' },
+                { value: 'HD_RADIO_FALHA', text: '26. Rádio/Microfone - Falha' },
+                { value: 'HD_TELEFONIA_RAMAL', text: '27. Telefonia/Ramal - Falha' },
+                { value: 'HD_RELOGIO_PONTO', text: '28. Relógio Ponto - Falha' },
+                { value: 'HD_TV_INTERNA', text: '29. TV Interna - Falha' },
+                { value: 'HD_RELATORIO_FALHA', text: '30. Relatório - Falha ao Gerar' },
+                { value: 'HD_APPHAVAN_ERRO', text: '31. SuperApp Havan - Erro' },
+                { value: 'HD_TEAMS_REUNIAO', text: '32. Teams - Auxílio Reunião' },
+                { value: 'HD_CADASTRO_NOVO_PERFIL', text: '33. Cadastro - Criação de Novo Perfil de Rede' },
+                { value: 'HD_OUTROS_TERMO_RESPONSABILIDADE', text: '34. Outros - Solicitação de Termo de Responsabilidade' },
+                { value: 'HD_OUTROS_WHATSAPP_BUSINESS_LIDER', text: '35. Outros - Cadastro WhatsApp Business (Líder)' },
+                { value: 'HD_OUTROS_WHATSAPP_BUSINESS_VENDEDOR', text: '36. Outros - Cadastro WhatsApp Business (Vendedor)' }
+            ]
+        };
+
+        /**
+         * Atualiza as opções do segundo dropdown (macroSelect) com base na categoria selecionada.
+         */
+        function updateMacroOptions() {
+            const selectedCategory = categorySelect.value;
+            
+            // Limpa as opções atuais
+            macroSelect.innerHTML = '<option value="">-- Selecione um Assunto --</option>';
+            macroOutput.style.display = 'none';
+
+            if (selectedCategory && macroOptions[selectedCategory]) {
+                // Adiciona as novas opções e DESBLOQUEIA a segunda aba
+                macroOptions[selectedCategory].forEach(macro => {
+                    const option = document.createElement('option');
+                    option.value = macro.value;
+                    option.textContent = macro.text;
+                    macroSelect.appendChild(option);
+                });
+                macroSelect.disabled = false; // DESBLOQUEIO
+            } else {
+                 // Mantém BLOQUEADA se a categoria principal for vazia
+                 macroSelect.innerHTML = '<option value="">-- Selecione uma Categoria Primeiro --</option>';
+                 macroSelect.disabled = true; // BLOQUEIO
+            }
+        }
+
 
         /**
          * Exibe a macro selecionada no textarea.
@@ -176,10 +555,11 @@
         function displayMacro() {
             const selectedValue = macroSelect.value;
             
-            if (selectedValue && macros[selectedValue]) {
-                macroText.value = macros[selectedValue];
+            if (selectedValue && allMacros[selectedValue]) {
+                macroText.value = allMacros[selectedValue].text;
                 macroOutput.style.display = 'block';
-                macroOutput.scrollIntoView({ behavior: 'smooth' }); 
+                // Garante que a área de texto fique visível
+                macroOutput.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
             } else {
                 macroOutput.style.display = 'none';
             }
@@ -190,6 +570,8 @@
          * Copia o texto da macro para a área de transferência.
          */
         function copyMacro() {
+            if (!macroText.value) return; 
+
             macroText.select();
             macroText.setSelectionRange(0, 99999); 
             
@@ -204,6 +586,9 @@
                 alert('Erro ao copiar a macro. Por favor, tente selecionar e copiar manualmente.');
             });
         }
+        
+        // Chama a função ao carregar para definir o estado inicial (bloqueado)
+        document.addEventListener('DOMContentLoaded', updateMacroOptions); 
     </script>
 </body>
 </html>
